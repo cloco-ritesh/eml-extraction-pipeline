@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+*.egg
+
+# Environment
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+
+# EasyOCR models cache
+.EasyOCR/
+
+# Test
+.pytest_cache/
+htmlcov/
+.coverage
+.tox/
+
+# Pipeline outputs (generated per-email, not source)
+watch_folder/*.json
+watch_folder/*.html
+watch_folder/*.md
+watch_folder/*.eml
+!watch_folder/.gitkeep
+
+# Claude Code
+.claude/

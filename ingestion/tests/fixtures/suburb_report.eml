@@ -1,0 +1,2678 @@
+Delivered-To: chitrakar.ritesh@cloco.co.jp
+Received: by 2002:a05:7000:3e1e:b0:83d:3c7f:3576 with SMTP id bd30csp249165mab;
+        Thu, 26 Mar 2026 20:45:21 -0700 (PDT)
+X-Received: by 2002:a05:6a00:338c:b0:824:9edb:454 with SMTP id d2e1a72fcca58-82c95ebeb72mr937913b3a.37.1774583120856;
+        Thu, 26 Mar 2026 20:45:20 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1774583120; cv=none;
+        d=google.com; s=arc-20240605;
+        b=jm7M+3O9Hqs4kcUU1FkOsT81iXoxnhn3qfl9tf1GjBbCKa36hq9DceA3tu4IWKrnDy
+         2D6X2iLmm/GtpMhO6/MRxWkQuSGFxXFuvRHaoECuy9TdJ74Tl6Wvx6UMtQxHEszAFEWn
+         N+d2Vg6isic2Hwno+ok5Uc66Zwu1x+7/Jt8ToCs0O/We+qadrmPB+pLtkKDmunK3s5fM
+         r5b83TjCly72F7JY85VS0gLB45qg+KSH9+qcEi/FmXdAexXZkYeCdTSRXREVByLHLaJy
+         yn9LlGPHlsQGusQEUqwgMQghyLlPAZQyZ60r1RQkBoXyJ7ty9suu2Nz/0wdB3GwL43JR
+         AuMw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=date:to:references:message-id:subject:mime-version:from
+         :dkim-signature;
+        bh=QSKgggRLjX/dkrmVvei58bHTEuq+uP0RcyA8HCpKa8k=;
+        fh=hGmm+NI2iLIh1bRqCqPg7wrIUchW1sZJ8D2lj9/ACEY=;
+        b=B8EmPvv0OMsYn3Op3Dne/RDPIBnw09x1AatNLkcO9Zbnx5/j663kEH8cEUKtU+C6+B
+         XZLarMQqtYhR075mZn8zjpBGL+RjiRixt8xHDecQy+PzqvHkpD+nHyQ10igyW6+scsN/
+         GTrwO2t1pHaONleIdLt2HFoacGRBmwOm8EqEhEaBFU9QyGEBI5S5w4RVt1fYsiMrP9rA
+         ikRQq8XtOdV6GsfNfYU/DwkaaHqNpx2Dn57XGnNpKHCSscm4sRd7guLzT1XrDdQfpMBv
+         cQC5v/PkZ96iMNstqsHvmJwAwNz3twhRhu/xjLUAfIuKaa8mjKQbaC4NkrQ0sPAnl4sG
+         3P/g==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@bigpond.com header.s=202303 header.b=ShXhwzyA;
+       spf=pass (google.com: domain of sammieemiko@bigpond.com designates 203.42.40.153 as permitted sender) smtp.mailfrom=sammieemiko@bigpond.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=bigpond.com
+Return-Path: <sammieemiko@bigpond.com>
+Received: from exhmta09.bpe.bigpond.com (exhmta09.bpe.bigpond.com. [203.42.40.153])
+        by mx.google.com with ESMTPS id d2e1a72fcca58-82c7d3d5df1si10122663b3a.118.2026.03.26.20.45.20
+        for <chitrakar.ritesh@cloco.co.jp>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 26 Mar 2026 20:45:20 -0700 (PDT)
+Received-SPF: pass (google.com: domain of sammieemiko@bigpond.com designates 203.42.40.153 as permitted sender) client-ip=203.42.40.153;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@bigpond.com header.s=202303 header.b=ShXhwzyA;
+       spf=pass (google.com: domain of sammieemiko@bigpond.com designates 203.42.40.153 as permitted sender) smtp.mailfrom=sammieemiko@bigpond.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=bigpond.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=bigpond.com
+	; s=202303; h=Date:To:Message-Id:Subject:Mime-Version:Content-Type:From;
+	bh=QSKgggRLjX/dkrmVvei58bHTEuq+uP0RcyA8HCpKa8k=; b=ShXhwzyA7kmuv+aDRovlcmb3cm
+	h+aQ2JdZ8sOAUg0+1sw/BkKwB1RtXrI6Fj5oHkLsHbb4LebmmNagtHKtCKti8oP+1+scKYQUkTJKs
+	TX1GpkHS0ruGQPrdAS1XbmrwDVMY0pSx43hJTx6iqhPEQljhJiNggzEP/IjL0joJ6Xl4RCKcPTvI1
+	KBIVku3llWIaluIeir/6prRxrn61wG+zfL1trPqL2SntOyv1NSMo+RlutGlkc3IxqGaI4Ky/Bho2X
+	B58ZhPECQsd2LUKU6SxdNya+twK0BJtOOLLdAaGlAL1T2MOZhJGXi8AlY2rA8lkVHIDF41z9CxkdI
+	jCKgyiAA==;
+Received: from exhprdcmr10
+	 by exhprdomr09 with esmtp
+	 (envelope-from <sammieemiko@bigpond.com>)
+	 id 1w5y8M-000EjP-2C
+	 for chitrakar.ritesh@cloco.co.jp;
+	Fri, 27 Mar 2026 14:45:18 +1100
+Received: from [101.115.12.120] (helo=smtpclient.apple)
+	 by exhprdcmr10 with esmtpa
+	(envelope-from <sammieemiko@bigpond.com>)
+	id 1w5y8M-000160-17
+	for chitrakar.ritesh@cloco.co.jp;
+	Fri, 27 Mar 2026 14:45:18 +1100
+From: Sammie Lee <sammieemiko@bigpond.com>
+Content-Type: multipart/alternative;
+	boundary="Apple-Mail=_C892C3F4-0D54-46F5-A430-CF6D2C6B92B7"
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.400.21\))
+Subject: Fwd: Your Weekly Suburb Report is Ready
+Message-Id: <94FC995B-D7DF-4F4F-96B7-0B96E2F2B45D@bigpond.com>
+References: <87F5E1EF-CB42-4B96-A671-7FE322D03B43@theagency.com.au>
+To: chitrakar.ritesh@cloco.co.jp
+Date: Fri, 27 Mar 2026 14:45:08 +1100
+X-Mailer: Apple Mail (2.3864.400.21)
+X-tce-id: sammieemiko@bigpond.com
+X-tce-ares-id: e{23397bac-1957-42f2-8f5f-2efd51602629}3
+X-tce-spam-action-v: no action
+X-tce-spam-score-v: 0.0
+X-tce-spam-report-v: Content-length: 737
+X-VR-SPAM-STATE: 0
+X-VR-SPAM-SCORE: 0
+X-VR-SPAM-CAUSE: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdefvdelvdefucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuvffgnffuvfftteenuceurghilhhouhhtmecupfdsteenucenucfjughrpefhtggguffkfhfvfffosegrtdhmrehhtdejnecuhfhrohhmpefurghmmhhivgcunfgvvgcuoehsrghmmhhivggvmhhikhhosegsihhgphhonhgurdgtohhmqeenucggtffrrghtthgvrhhnpedtgefgueejleefjeffudfgvdeihfeikeevteehkeekleegieffieekteetleegvdenucffohhmrghinhepphhrohhpihhnghdrtghomhdrrghunecukfhppedutddurdduudehrdduvddruddvtdenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehsrghmmhhivggvmhhikhhosegsihhgphhonhgurdgtohhmpdhnsggprhgtphhtthhopedupdhrtghpthhtoheptghhihhtrhgrkhgrrhdrrhhithgvshhhsegtlhhotghordgtohdrjhhppdhmohguvgepshhmthhpohhuth
+X-tce-spam-action-c: no action
+X-tce-spam-score-c: 0.0
+X-tce-spam-report-c: Action: no action
+X-Cm-Analysis: v=2.4 cv=L83WQPT8 c=1 sm=1 tr=0 ts=69c5fd4e a=WDxbmGi1UDWtoHyL+fmEVg==:117 a=WDxbmGi1UDWtoHyL+fmEVg==:17 a=Yq5XynenixoA:10 a=Ibt3ppcNAAAA:8 a=D66WH2mTAAAA:8 a=Z41YKW3pgkrFnCRjNCIA:9 a=QEXdDO2ut3YA:10 a=6wkfAn-wAAAA:8 a=FbF8YjOSrOzpUkjrEoIA:9 a=0KG-85W1BnQt3Q7g:21 a=_W_S_7VecoQA:10 a=3SK9y4C4bOQblwMzFBVd:22 a=nDn2D_zTSswXio_EN_Ab:22 a=UpxTbEkExsIXOnEBuLq1:22 a=VBVpkCXGCGXj2ZTkKkIU:22 a=M6UB41pGo0pMB6ru2Xxn:22 a=yiyhFsn6dP8xYA5oFz9c:22 a=Gp0gBWe1W012YFaH3GnG:22 a=Ewj7jnSR5fdhqaAR_l55:22 a=FoV3fKVWOD-odxzKIFIR:22 a=h7hKd91NC7O_YgkBqVy_:22
+X-Cm-Envelope: MS4xfJY8wuWPefh/AHNUuXmArMOYhlPoMeKuMpZ3ca53WNm+jQDpq/trLLLO7oDTSScFfrMdsPbG3xCJa8Rb0Ex/dMOCaYkxZDJjUfCz3DwBCLchHJf/zSTL HlrrYpT8YCaZ54d2q7m8UGZfAcYRAuLQXKOyiGR4PIFb+oMiTkhtYE5alGwgdOR82YXiEWQ+BfP/jQ==
+
+
+--Apple-Mail=_C892C3F4-0D54-46F5-A430-CF6D2C6B92B7
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain;
+	charset=utf-8
+
+>> Begin forwarded message:
+>>=20
+>> From: Proping <proping@proping.com.au>
+>> Subject: Your Weekly Suburb Report is Ready
+>> Date: 23 March 2026 at 6:59:19=E2=80=AFAM AEDT
+>> To: Ella <ellaconroy@theagency.com.au>
+>>=20
+>>  =
+<http://url8771.proping.com.au/ls/click?upn=3Du001.tjt9S62NpaFC5Xsvh1WPD08=
+BjuHS3VrMrUQ0zLUMV3Y-3D6Zu6_4OmvopZT8m1QHj0snBFJ0-2FKGsORUExuLzFhulZQsWDim=
+-2BiyeQS48GVAWLITeIoBRXn509YDOmjkuD1cuIwN-2B886XTD626gFBuzQY-2BC3OzN00dqA2=
+Hayrm7lZLaZM2YU5QaV-2BC-2F7sX3bNEubjxjHlwfq6Pobpbk2aCXZO-2BBtRwySwHNPu-2Bj=
+rm9Xvr5VyzPSqh1OzhC2IUyZMlE4kSMXp-2FXTC8QpJNwCVjzmA1CXrAN8DxHgZxtVUOIP240i=
+xDpk6y-2B-2BXMfQPrQxJMZrBFbm6lZzUfguWK-2Ff7323kE-2BzYsYOFcsWY0Nk4zMJTZmviv=
+Xx5xZUvtmUGSgwsXldn8m740og-3D-3D>=20
+>> Happy Monday Ella! This is your weekly recap of your market and =
+metrics at a glance.
+>>  NORTH WILLOUGHBY
+>> Apartment
+>>=20
+>> BED	UPDATES
+>> LAST WEEK	LISTINGS	SOLD
+>> 6 MO | 3 MO
+>> No Apartment data for this suburb
+>> House
+>>=20
+>> BED	UPDATES
+>> LAST WEEK	LISTINGS	SOLD
+>> 6 MO | 3 MO
+>> No House data for this suburb
+>>  WILLOUGHBY
+>> Apartment
+>>=20
+>> BED	UPDATES
+>> LAST WEEK	LISTINGS	SOLD
+>> 6 MO | 3 MO
+>> 1 	Sold 1	Live Listings
+>> 1=20
+>>=20
+>> Median Age
+>> 12 days	Total Sold=20
+>> 13  | 7=20
+>>=20
+>> Median Sold
+>> $850,000=20
+>>=20
+>> Avg Days Listed
+>> 39 days
+>> 2 	Newly Listed 3
+>> Sold 1	Live Listings
+>> 11=20
+>>=20
+>> Median Age
+>> 18 days	Total Sold=20
+>> 18  | 8=20
+>>=20
+>> Median Sold
+>> $1,097,500=20
+>>=20
+>> Avg Days Listed
+>> 29 days
+>> 3 	Newly Listed 1
+>> Sold 1	Live Listings
+>> 8=20
+>>=20
+>> Median Age
+>> 69 days	Total Sold=20
+>> 3  | 1=20
+>>=20
+>> Median Sold
+>> $1,485,000=20
+>>=20
+>> Avg Days Listed
+>> 44 days
+>> House
+>>=20
+>> BED	UPDATES
+>> LAST WEEK	LISTINGS	SOLD
+>> 6 MO | 3 MO
+>> 2 	Sold 1	Live Listings
+>> 2=20
+>>=20
+>> Median Age
+>> 48 days	Total Sold=20
+>> 4  | 2=20
+>>=20
+>> Median Sold
+>> $2,375,000=20
+>>=20
+>> Avg Days Listed
+>> 26 days
+>> 3 	Sold 1
+>> Price Increase 1	Live Listings
+>> 7=20
+>>=20
+>> Median Age
+>> 45 days	Total Sold=20
+>> 24  | 9=20
+>>=20
+>> Median Sold
+>> $3,000,000=20
+>>=20
+>> Avg Days Listed
+>> 33 days
+>> 4 	Price Drop 1
+>> Sold 1	Live Listings
+>> 13=20
+>>=20
+>> Median Age
+>> 52 days	Total Sold=20
+>> 17  | 6=20
+>>=20
+>> Median Sold
+>> $4,190,000=20
+>>=20
+>> Avg Days Listed
+>> 36 days
+>> 5 	Price Drop 2
+>> Price Increase 1
+>> Sold 1	Live Listings
+>> 9=20
+>>=20
+>> Median Age
+>> 38 days	Total Sold=20
+>> 15  | 7=20
+>>=20
+>> Median Sold
+>> $5,080,000=20
+>>=20
+>> Avg Days Listed
+>> 40 days
+>> 6 	No Updates	Live Listings
+>> 1=20
+>>=20
+>> Median Age
+>> 37 days	Total Sold=20
+>> 2  | 1=20
+>>=20
+>> Median Sold
+>> $6,779,000=20
+>>=20
+>> Avg Days Listed
+>> 34 days
+>>  WILLOUGHBY EAST
+>> Apartment
+>>=20
+>> BED	UPDATES
+>> LAST WEEK	LISTINGS	SOLD
+>> 6 MO | 3 MO
+>> No Apartment data for this suburb
+>> House
+>>=20
+>> BED	UPDATES
+>> LAST WEEK	LISTINGS	SOLD
+>> 6 MO | 3 MO
+>> No House data for this suburb
+>>  ARTARMON
+>> Apartment
+>>=20
+>> BED	UPDATES
+>> LAST WEEK	LISTINGS	SOLD
+>> 6 MO | 3 MO
+>> 1 	Price Increase 2	Live Listings
+>> 1=20
+>>=20
+>> Median Age
+>> 17 days	Total Sold=20
+>> 7  | 5=20
+>>=20
+>> Median Sold
+>> $812,000=20
+>>=20
+>> Avg Days Listed
+>> 75 days
+>> 2 	No Updates	Live Listings
+>> 6=20
+>>=20
+>> Median Age
+>> 36 days	Total Sold=20
+>> 47  | 22=20
+>>=20
+>> Median Sold
+>> $1,130,000=20
+>>=20
+>> Avg Days Listed
+>> 53 days
+>> 3 	Newly Listed 1	Live Listings
+>> 1=20
+>>=20
+>> Median Age
+>> 3 days	Total Sold=20
+>> 10  | 2=20
+>>=20
+>> Median Sold
+>> $1,555,000=20
+>>=20
+>> Avg Days Listed
+>> 80 days
+>> House
+>>=20
+>> BED	UPDATES
+>> LAST WEEK	LISTINGS	SOLD
+>> 6 MO | 3 MO
+>> 3 	No Updates	Live Listings
+>> 2=20
+>>=20
+>> Median Age
+>> 20 days	Total Sold=20
+>> 3  | 1=20
+>>=20
+>> Median Sold
+>> $3,500,000=20
+>>=20
+>> Avg Days Listed
+>> 46 days
+>> 4 	Sold 1	Live Listings
+>> 2=20
+>>=20
+>> Median Age
+>> 27 days	Total Sold=20
+>> 7  | 5=20
+>>=20
+>> Median Sold
+>> $3,620,000=20
+>>=20
+>> Avg Days Listed
+>> 37 days
+>> 5 	No Updates	Live Listings
+>> 3=20
+>>=20
+>> Median Age
+>> 24 days	Total Sold=20
+>> 1  | 0=20
+>>=20
+>> Median Sold
+>> $2,725,000=20
+>>=20
+>> Avg Days Listed
+>> 48 days
+>>  MIDDLE COVE
+>> Apartment
+>>=20
+>> BED	UPDATES
+>> LAST WEEK	LISTINGS	SOLD
+>> 6 MO | 3 MO
+>> No Apartment data for this suburb
+>> House
+>>=20
+>> BED	UPDATES
+>> LAST WEEK	LISTINGS	SOLD
+>> 6 MO | 3 MO
+>> 4 	Newly Listed 1
+>> Price Increase 1
+>> Sold 1	Live Listings
+>> 3=20
+>>=20
+>> Median Age
+>> 34 days	Total Sold=20
+>> 1  | 1=20
+>>=20
+>> Median Sold
+>> $2,718,000=20
+>>=20
+>> Avg Days Listed
+>> 24 days
+>> 5 	No Updates	Live Listings
+>> 4=20
+>>=20
+>> Median Age
+>> 31 days	Total Sold=20
+>> 3  | 0=20
+>>=20
+>> Median Sold
+>> $5,050,000=20
+>>=20
+>> Avg Days Listed
+>> 24 days
+>>  NAREMBURN
+>> Apartment
+>>=20
+>> BED	UPDATES
+>> LAST WEEK	LISTINGS	SOLD
+>> 6 MO | 3 MO
+>> 1 	No Updates	Live Listings
+>> 1=20
+>>=20
+>> Median Age
+>> 1098 days	Total Sold=20
+>> 6  | 3=20
+>>=20
+>> Median Sold
+>> $795,000=20
+>>=20
+>> Avg Days Listed
+>> 133 days
+>> 2 	Newly Listed 2	Live Listings
+>> 5=20
+>>=20
+>> Median Age
+>> 6 days	Total Sold=20
+>> 16  | 5=20
+>>=20
+>> Median Sold
+>> $1,342,500=20
+>>=20
+>> Avg Days Listed
+>> 40 days
+>> 3 	Sold 1	Live Listings
+>> 1=20
+>>=20
+>> Median Age
+>> 32 days	Total Sold=20
+>> 3  | 2=20
+>>=20
+>> Median Sold
+>> $1,812,500=20
+>>=20
+>> Avg Days Listed
+>> 44 days
+>> House
+>>=20
+>> BED	UPDATES
+>> LAST WEEK	LISTINGS	SOLD
+>> 6 MO | 3 MO
+>> 3 	No Updates	Live Listings
+>> 2=20
+>>=20
+>> Median Age
+>> 13 days	Total Sold=20
+>> 14  | 4=20
+>>=20
+>> Median Sold
+>> $3,125,444=20
+>>=20
+>> Avg Days Listed
+>> 41 days
+>> 4 	No Updates	Live Listings
+>> 4=20
+>>=20
+>> Median Age
+>> 24 days	Total Sold=20
+>> 6  | 3=20
+>>=20
+>> Median Sold
+>> $3,912,000=20
+>>=20
+>> Avg Days Listed
+>> 43 days
+>> 5 	No Updates	Live Listings
+>> 1=20
+>>=20
+>> Median Age
+>> 67 days	Total Sold=20
+>> 4  | 4=20
+>>=20
+>> Median Sold
+>> $4,369,000=20
+>>=20
+>> Avg Days Listed
+>> 40 days
+>>  CASTLE COVE
+>> Apartment
+>>=20
+>> BED	UPDATES
+>> LAST WEEK	LISTINGS	SOLD
+>> 6 MO | 3 MO
+>> 3 	No Updates	Live Listings
+>> 1=20
+>>=20
+>> Median Age
+>> 507 days	Total Sold=20
+>> 0  | 0=20
+>>=20
+>> Median Sold
+>> =E2=80=93=20
+>>=20
+>> Avg Days Listed
+>> =E2=80=93
+>> House
+>>=20
+>> BED	UPDATES
+>> LAST WEEK	LISTINGS	SOLD
+>> 6 MO | 3 MO
+>> 3 	No Updates	Live Listings
+>> 1=20
+>>=20
+>> Median Age
+>> 60 days	Total Sold=20
+>> 1  | 0=20
+>>=20
+>> Median Sold
+>> $3,880,000=20
+>>=20
+>> Avg Days Listed
+>> 21 days
+>> 4 	Price Drop 1
+>> Unlisted 1	Live Listings
+>> 5=20
+>>=20
+>> Median Age
+>> 25 days	Total Sold=20
+>> 4  | 0=20
+>>=20
+>> Median Sold
+>> $3,850,000=20
+>>=20
+>> Avg Days Listed
+>> 42 days
+>> 5 	Price Drop 1	Live Listings
+>> 4=20
+>>=20
+>> Median Age
+>> 21 days	Total Sold=20
+>> 7  | 3=20
+>>=20
+>> Median Sold
+>> $3,962,500=20
+>>=20
+>> Avg Days Listed
+>> 58 days
+>>  CASTLECRAG
+>> Apartment
+>>=20
+>> BED	UPDATES
+>> LAST WEEK	LISTINGS	SOLD
+>> 6 MO | 3 MO
+>> No Apartment data for this suburb
+>> House
+>>=20
+>> BED	UPDATES
+>> LAST WEEK	LISTINGS	SOLD
+>> 6 MO | 3 MO
+>> 4 	Price Drop 2
+>> Unlisted 1	Live Listings
+>> 6=20
+>>=20
+>> Median Age
+>> 35 days	Total Sold=20
+>> 4  | 0=20
+>>=20
+>> Median Sold
+>> $7,861,250=20
+>>=20
+>> Avg Days Listed
+>> 114 days
+>> 5 	Price Increase 1	Live Listings
+>> 3=20
+>>=20
+>> Median Age
+>> 52 days	Total Sold=20
+>> 8  | 3=20
+>>=20
+>> Median Sold
+>> $4,867,500=20
+>>=20
+>> Avg Days Listed
+>> 39 days
+>> 6 	No Updates	Live Listings
+>> 1=20
+>>=20
+>> Median Age
+>> 151 days	Total Sold=20
+>> 0  | 0=20
+>>=20
+>> Median Sold
+>> =E2=80=93=20
+>>=20
+>> Avg Days Listed
+>> =E2=80=93
+>>  CHATSWOOD
+>> House
+>>=20
+>> BED	UPDATES
+>> LAST WEEK	LISTINGS	SOLD
+>> 6 MO | 3 MO
+>> 3 	Price Drop 2
+>> Under Offer 1	Live Listings
+>> 7=20
+>>=20
+>> Median Age
+>> 45 days	Total Sold=20
+>> 21  | 7=20
+>>=20
+>> Median Sold
+>> $3,380,000=20
+>>=20
+>> Avg Days Listed
+>> 44 days
+>> 4 	Price Drop 2
+>> Price Increase 1
+>> Sold 1	Live Listings
+>> 9=20
+>>=20
+>> Median Age
+>> 25 days	Total Sold=20
+>> 21  | 6=20
+>>=20
+>> Median Sold
+>> $3,502,500=20
+>>=20
+>> Avg Days Listed
+>> 42 days
+>> 5 	Price Drop 1
+>> Price Increase 1
+>> Sold 1	Live Listings
+>> 14=20
+>>=20
+>> Median Age
+>> 31 days	Total Sold=20
+>> 23  | 10=20
+>>=20
+>> Median Sold
+>> $4,075,000=20
+>>=20
+>> Avg Days Listed
+>> 49 days
+>> 6 	Newly Listed 1
+>> Unlisted 1	Live Listings
+>> 2=20
+>>=20
+>> Median Age
+>> 22 days	Total Sold=20
+>> 1  | 0=20
+>>=20
+>> Median Sold
+>> =E2=80=93=20
+>>=20
+>> Avg Days Listed
+>> 60 days
+>> Apartment
+>>=20
+>> BED	UPDATES
+>> LAST WEEK	LISTINGS	SOLD
+>> 6 MO | 3 MO
+>> 1 	Newly Listed 9
+>> Price Drop 1
+>> Price Increase 2	Live Listings
+>> 27=20
+>>=20
+>> Median Age
+>> 23 days	Total Sold=20
+>> 27  | 8=20
+>>=20
+>> Median Sold
+>> $812,500=20
+>>=20
+>> Avg Days Listed
+>> 73 days
+>> 2 	Sold 2
+>> Newly Listed 14
+>> Price Drop 1	Live Listings
+>> 41=20
+>>=20
+>> Median Age
+>> 18 days	Total Sold=20
+>> 50  | 22=20
+>>=20
+>> Median Sold
+>> $1,189,344=20
+>>=20
+>> Avg Days Listed
+>> 57 days
+>> 3 	Sold 1
+>> Newly Listed 6	Live Listings
+>> 24=20
+>>=20
+>> Median Age
+>> 66 days	Total Sold=20
+>> 18  | 7=20
+>>=20
+>> Median Sold
+>> $1,700,000=20
+>>=20
+>> Avg Days Listed
+>> 66 days
+>> 4 	No Updates	Live Listings
+>> 2=20
+>>=20
+>> Median Age
+>> 37 days	Total Sold=20
+>> 1  | 0=20
+>>=20
+>> Median Sold
+>> $4,760,000=20
+>>=20
+>> Avg Days Listed
+>> 81 days
+>> 5 	No Updates	Live Listings
+>> 1=20
+>>=20
+>> Median Age
+>> 26 days	Total Sold=20
+>> 0  | 0=20
+>>=20
+>> Median Sold
+>> =E2=80=93=20
+>>=20
+>> Avg Days Listed
+>> =E2=80=93
+>> That's all for today! Want to refine your preferences?
+>> Manage pings =
+<http://url8771.proping.com.au/ls/click?upn=3Du001.tjt9S62NpaFC5Xsvh1WPD-2=
+B0SOWYo4YGGDRg3gSmf8esFJWYileVoaTx9m-2FQxL-2FMDyspx_4OmvopZT8m1QHj0snBFJ0-=
+2FKGsORUExuLzFhulZQsWDim-2BiyeQS48GVAWLITeIoBRXn509YDOmjkuD1cuIwN-2B886XTD=
+626gFBuzQY-2BC3OzN00dqA2Hayrm7lZLaZM2YU5QaV-2BC-2F7sX3bNEubjxjHlwfq6Pobpbk=
+2aCXZO-2BBtRwySwHNPu-2Bjrm9Xvr5VyzPSqh1OzhC2IUyZMlE4kSMXp-2FXWzJovrTb2MMAd=
+vjwIUTnarUNUSdDVdj13rgvla-2BY5MduMtFBsV6DzWRDPDfsrrOIfy9G0K9doDUAriZbsjraj=
+a03kn59VfqheEs1IBkqZee5SRUEnEC9KzqH-2FUY08wYmg-3D-3D>
+>> If you haven't set up your own ping yet, click here to signup =
+<http://url8771.proping.com.au/ls/click?upn=3Du001.S4M6ZzZAtRCX50F9fpski0s=
+KSYD3XJ1bLoMf1v3DlH3E2Tq7Nq7UZho-2BxCuWikJYxfEb_4OmvopZT8m1QHj0snBFJ0-2FKG=
+sORUExuLzFhulZQsWDim-2BiyeQS48GVAWLITeIoBRXn509YDOmjkuD1cuIwN-2B886XTD626g=
+FBuzQY-2BC3OzN00dqA2Hayrm7lZLaZM2YU5QaV-2BC-2F7sX3bNEubjxjHlwfq6Pobpbk2aCX=
+ZO-2BBtRwySwHNPu-2Bjrm9Xvr5VyzPSqh1OzhC2IUyZMlE4kSMXp-2FXac0ucL2O9c-2BYSE4=
+9NxiZ54Z-2FhUmDs8keQUsNsrCzLeUlj-2BH4u9luJJW46MQ0BHowJPsk4OiPJsAJmzDe-2Fa1=
+XMl7dM1vW2lA-2FsWwK3fB6i135l25w-2FXPW9-2Bga1NdiGV50A-3D-3D>
+>>=20
+>>  =
+<http://url8771.proping.com.au/ls/click?upn=3Du001.tjt9S62NpaFC5Xsvh1WPD08=
+BjuHS3VrMrUQ0zLUMV3Y-3DPRDa_4OmvopZT8m1QHj0snBFJ0-2FKGsORUExuLzFhulZQsWDim=
+-2BiyeQS48GVAWLITeIoBRXn509YDOmjkuD1cuIwN-2B886XTD626gFBuzQY-2BC3OzN00dqA2=
+Hayrm7lZLaZM2YU5QaV-2BC-2F7sX3bNEubjxjHlwfq6Pobpbk2aCXZO-2BBtRwySwHNPu-2Bj=
+rm9Xvr5VyzPSqh1OzhC2IUyZMlE4kSMXp-2FXVU-2Bv1QRRO5G0aGdy1PmK-2F-2BU6EJ23LH9=
+2qb8XoURXzGC-2Bm-2Fz4TAfsEXM7u-2FDrOlrjkUTl-2B6-2BcAhS-2BidgGiIQYwgvNSxHXE=
+zyuw7vp7DKteeqh5fkT6f5kEFsN-2BzlV9O8eg-3D-3D>=20
+>> Disclaimer: While Proping makes every effort to ensure data =
+integrity, no representations or warranties are made as to the accuracy, =
+completeness, or reliability of the information provided. Proping =
+accepts no liability for any errors, omissions, or reliance placed on =
+this data. The content of this email and any attachments is confidential =
+and intended only for the recipient. If you are not the intended =
+recipient, any use, distribution, or copying of this message or its =
+attachments is strictly prohibited. Please read our terms of service for =
+more details.terms of service =
+<http://url8771.proping.com.au/ls/click?upn=3Du001.tjt9S62NpaFC5Xsvh1WPD9L=
+8upP-2FwQCIYWaC2YyNL9TcN1HrswTb-2BmbHKhAUTB7fH48f_4OmvopZT8m1QHj0snBFJ0-2F=
+KGsORUExuLzFhulZQsWDim-2BiyeQS48GVAWLITeIoBRXn509YDOmjkuD1cuIwN-2B886XTD62=
+6gFBuzQY-2BC3OzN00dqA2Hayrm7lZLaZM2YU5QaV-2BC-2F7sX3bNEubjxjHlwfq6Pobpbk2a=
+CXZO-2BBtRwySwHNPu-2Bjrm9Xvr5VyzPSqh1OzhC2IUyZMlE4kSMXp-2FXTuI5XZYsxWDn4dy=
+icr1ls4BAEdHK5jwDf2jQdpc0zciFHp29QGriQzSUQ4tCPXXVfu3Q6vv3KG9AAE2pUNUEVhgRK=
+g4nmAL7-2B7zRuBuGgNMZkbFTjsJ-2FORe4JqljEy4ZA-3D-3D>.
+>> If you would like to stop receiving these TRENDS emails CLICK HERE =
+<http://url8771.proping.com.au/ls/click?upn=3Du001.tjt9S62NpaFC5Xsvh1WPD0m=
+AbvMGFHxDRutqLn0sn3nAZCm9bX0nQ7frAq-2BWPd4il59cSpUmx3KSCMNBlU5k-2BRe4SAiqT=
+ykVyPTcUSDUeo0-3Do0cy_4OmvopZT8m1QHj0snBFJ0-2FKGsORUExuLzFhulZQsWDim-2Biye=
+QS48GVAWLITeIoBRXn509YDOmjkuD1cuIwN-2B886XTD626gFBuzQY-2BC3OzN00dqA2Hayrm7=
+lZLaZM2YU5QaV-2BC-2F7sX3bNEubjxjHlwfq6Pobpbk2aCXZO-2BBtRwySwHNPu-2Bjrm9Xvr=
+5VyzPSqh1OzhC2IUyZMlE4kSMXp-2FXUL-2BI9juA7kTwOzL-2FcSqtw8JkS6pVOPv4j6esULk=
+Cc1vzhcFW1DbyDxqcLTJ0tQj0W-2B955obUtfKDe-2FDIav7MvZoYlpkmfC4x4cIs2rrX2rexb=
+jSj56Vv3g1eahM-2BDVsIA-3D-3D>
+
+
+--Apple-Mail=_C892C3F4-0D54-46F5-A430-CF6D2C6B92B7
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html;
+	charset=utf-8
+
+<html aria-label=3D"message body"><head><meta http-equiv=3D"content-type" =
+content=3D"text/html; charset=3Dutf-8"></head><body =
+style=3D"overflow-wrap: break-word; -webkit-nbsp-mode: space; =
+line-break: after-white-space;"><div><blockquote type=3D"cite"><div><div =
+style=3D"overflow-wrap: break-word; -webkit-nbsp-mode: space; =
+line-break: after-white-space;"><div><blockquote type=3D"cite">
+<div>Begin forwarded message:</div>
+<br class=3D"Apple-interchange-newline">
+<div style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; =
+margin-left: 0px;">
+<span style=3D"font-family: -webkit-system-font, &quot;Helvetica =
+Neue&quot;, Helvetica, sans-serif;"><b>From:
+</b></span><span style=3D"font-family: -webkit-system-font, Helvetica =
+Neue, Helvetica, sans-serif;">Proping &lt;proping@proping.com.au&gt;<br>
+</span></div>
+<div style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; =
+margin-left: 0px;">
+<span style=3D"font-family: -webkit-system-font, &quot;Helvetica =
+Neue&quot;, Helvetica, sans-serif;"><b>Subject:
+</b></span><span style=3D"font-family: -webkit-system-font, Helvetica =
+Neue, Helvetica, sans-serif;"><b>Your Weekly Suburb Report is =
+Ready</b><br>
+</span></div>
+<div style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; =
+margin-left: 0px;">
+<span style=3D"font-family: -webkit-system-font, &quot;Helvetica =
+Neue&quot;, Helvetica, sans-serif;"><b>Date:
+</b></span><span style=3D"font-family: -webkit-system-font, Helvetica =
+Neue, Helvetica, sans-serif;">23 March 2026 at 6:59:19=E2=80=AFAM =
+AEDT<br>
+</span></div>
+<div style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; =
+margin-left: 0px;">
+<span style=3D"font-family: -webkit-system-font, &quot;Helvetica =
+Neue&quot;, Helvetica, sans-serif;"><b>To:
+</b></span><span style=3D"font-family: -webkit-system-font, Helvetica =
+Neue, Helvetica, sans-serif;">Ella =
+&lt;ellaconroy@theagency.com.au&gt;<br>
+</span></div>
+<br>
+<div>
+<meta name=3D"viewport" content=3D"width=3Ddevice-width">
+<div =
+style=3D"margin:0;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;wid=
+th:100%;max-width:1400px">
+<div style=3D"max-width:680px;margin:auto">
+<div style=3D"padding:32px 20px =
+32px;text-align:center;background:#f8f9fa"><a =
+href=3D"http://url8771.proping.com.au/ls/click?upn=3Du001.tjt9S62NpaFC5Xsv=
+h1WPD08BjuHS3VrMrUQ0zLUMV3Y-3D6Zu6_4OmvopZT8m1QHj0snBFJ0-2FKGsORUExuLzFhul=
+ZQsWDim-2BiyeQS48GVAWLITeIoBRXn509YDOmjkuD1cuIwN-2B886XTD626gFBuzQY-2BC3Oz=
+N00dqA2Hayrm7lZLaZM2YU5QaV-2BC-2F7sX3bNEubjxjHlwfq6Pobpbk2aCXZO-2BBtRwySwH=
+NPu-2Bjrm9Xvr5VyzPSqh1OzhC2IUyZMlE4kSMXp-2FXTC8QpJNwCVjzmA1CXrAN8DxHgZxtVU=
+OIP240ixDpk6y-2B-2BXMfQPrQxJMZrBFbm6lZzUfguWK-2Ff7323kE-2BzYsYOFcsWY0Nk4zM=
+JTZmvivXx5xZUvtmUGSgwsXldn8m740og-3D-3D"><img =
+style=3D"margin:auto;display:block;height:32px;padding:12px =
+0;width:32px;height:32px" width=3D"64" height=3D"64" =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/4=
+779b523-806d-4ea5-9068-cfa1f7c6ac21/200x200.png" alt=3D"Proping"></a>
+<img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/e=
+9adb0db-c96b-4329-938e-2508d13da04b/601x146.png" =
+style=3D"width:80px;height:20px; margin-bottom:12px" width=3D"80" =
+height=3D"20">
+<div style=3D"font-size: 13px; color: rgb(108, 117, 125); margin: auto; =
+max-width: 320px; line-height: 22px;">
+Happy Monday Ella! This is your weekly recap of your market and metrics =
+at a glance.</div>
+</div>
+<div style=3D"margin-top:24px">
+<div style=3D"padding-bottom:16px;border-bottom:1px solid =
+#443894;margin:32px 0;width:100%">
+<img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/6=
+f86a23a-8c64-4bf4-92a1-1b5fddb573d4/321x328.png" style=3D"width:36px; =
+height:36; vertical-align:middle" width=3D"36" height=3D"36">
+<span =
+style=3D"vertical-align:middle;margin-left:8px;font-size:28px;font-weight:=
+600;color:#343a40">
+NORTH WILLOUGHBY </span></div>
+<h3 style=3D"font-size:20px;font-weight:600;color:#1a1a1a;margin:48px 0 =
+24px;letter-spacing:-0.01em">
+Apartment </h3>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" =
+style=3D"font:13px =
+Helvetica,Arial,sans-serif;color:#222;margin-bottom:48px;border-radius:8px=
+;box-shadow:0 1px 3px rgba(0,0,0,.05);line-height:22px;">
+<thead valign=3D"top">
+<tr style=3D"background:#f8f9fa">
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Bed</th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Updates<br>
+<span style=3D"font-size:12px;color:#6c757d">Last week</span></th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Listings</th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Sold<br>
+<span style=3D"font-size:12px;color:#6c757d">6 Mo&nbsp;|&nbsp;3 =
+Mo</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan=3D"4" =
+style=3D"padding:12px;text-align:center;color:#6c757d;">No Apartment =
+data for this suburb
+</td>
+</tr>
+</tbody>
+</table>
+<h3 style=3D"font-size:20px;font-weight:600;color:#1a1a1a;margin:48px 0 =
+24px;letter-spacing:-0.01em">
+House </h3>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" =
+style=3D"font:13px =
+Helvetica,Arial,sans-serif;color:#222;margin-bottom:48px;border-radius:8px=
+;box-shadow:0 1px 3px rgba(0,0,0,.05);line-height:22px;">
+<thead valign=3D"top">
+<tr style=3D"background:#f8f9fa">
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Bed</th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Updates<br>
+<span style=3D"font-size:12px;color:#6c757d">Last week</span></th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Listings</th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Sold<br>
+<span style=3D"font-size:12px;color:#6c757d">6 Mo&nbsp;|&nbsp;3 =
+Mo</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan=3D"4" =
+style=3D"padding:12px;text-align:center;color:#6c757d;">No House data =
+for this suburb
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style=3D"margin-top:24px">
+<div style=3D"padding-bottom:16px;border-bottom:1px solid =
+#443894;margin:32px 0;width:100%">
+<img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/6=
+f86a23a-8c64-4bf4-92a1-1b5fddb573d4/321x328.png" style=3D"width:36px; =
+height:36; vertical-align:middle" width=3D"36" height=3D"36">
+<span =
+style=3D"vertical-align:middle;margin-left:8px;font-size:28px;font-weight:=
+600;color:#343a40">
+WILLOUGHBY </span></div>
+<h3 style=3D"font-size:20px;font-weight:600;color:#1a1a1a;margin:48px 0 =
+24px;letter-spacing:-0.01em">
+Apartment </h3>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" =
+style=3D"font:13px =
+Helvetica,Arial,sans-serif;color:#222;margin-bottom:48px;border-radius:8px=
+;box-shadow:0 1px 3px rgba(0,0,0,.05);line-height:22px;">
+<thead valign=3D"top">
+<tr style=3D"background:#f8f9fa">
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Bed</th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Updates<br>
+<span style=3D"font-size:12px;color:#6c757d">Last week</span></th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Listings</th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Sold<br>
+<span style=3D"font-size:12px;color:#6c757d">6 Mo&nbsp;|&nbsp;3 =
+Mo</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style=3D"border-top:1px solid #ced4da;
+padding:8px 12px 0 0;text-align:left;vertical-align:top;" valign=3D"top">
+<span style=3D"vertical-align:middle;font-size:14px;">1</span> <img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/4=
+a7aca79-2ec0-4744-afd4-017cd4e1928b/89x65.png" width=3D"16" =
+style=3D"vertical-align:middle;">
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Sold 1 </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Live Listings<br>
+1 <br>
+<br>
+Median Age<br>
+12 days </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Total Sold <br>
+13 <span style=3D"color:#6c757d">&nbsp;|&nbsp;7 </span><br>
+<br>
+Median Sold<br>
+$850,000 <br>
+<br>
+Avg Days Listed<br>
+39 days </td>
+</tr>
+<tr>
+<td style=3D"border-top:1px solid #ced4da;
+padding:8px 12px 0 0;text-align:left;vertical-align:top;" valign=3D"top">
+<span style=3D"vertical-align:middle;font-size:14px;">2</span> <img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/4=
+a7aca79-2ec0-4744-afd4-017cd4e1928b/89x65.png" width=3D"16" =
+style=3D"vertical-align:middle;">
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Newly Listed 3<br>
+Sold 1 </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Live Listings<br>
+11 <br>
+<br>
+Median Age<br>
+18 days </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Total Sold <br>
+18 <span style=3D"color:#6c757d">&nbsp;|&nbsp;8 </span><br>
+<br>
+Median Sold<br>
+$1,097,500 <br>
+<br>
+Avg Days Listed<br>
+29 days </td>
+</tr>
+<tr>
+<td style=3D"border-top:1px solid #ced4da;
+padding:8px 12px 0 0;text-align:left;vertical-align:top;" valign=3D"top">
+<span style=3D"vertical-align:middle;font-size:14px;">3</span> <img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/4=
+a7aca79-2ec0-4744-afd4-017cd4e1928b/89x65.png" width=3D"16" =
+style=3D"vertical-align:middle;">
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Newly Listed 1<br>
+Sold 1 </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Live Listings<br>
+8 <br>
+<br>
+Median Age<br>
+69 days </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Total Sold <br>
+3 <span style=3D"color:#6c757d">&nbsp;|&nbsp;1 </span><br>
+<br>
+Median Sold<br>
+$1,485,000 <br>
+<br>
+Avg Days Listed<br>
+44 days </td>
+</tr>
+</tbody>
+</table>
+<h3 style=3D"font-size:20px;font-weight:600;color:#1a1a1a;margin:48px 0 =
+24px;letter-spacing:-0.01em">
+House </h3>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" =
+style=3D"font:13px =
+Helvetica,Arial,sans-serif;color:#222;margin-bottom:48px;border-radius:8px=
+;box-shadow:0 1px 3px rgba(0,0,0,.05);line-height:22px;">
+<thead valign=3D"top">
+<tr style=3D"background:#f8f9fa">
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Bed</th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Updates<br>
+<span style=3D"font-size:12px;color:#6c757d">Last week</span></th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Listings</th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Sold<br>
+<span style=3D"font-size:12px;color:#6c757d">6 Mo&nbsp;|&nbsp;3 =
+Mo</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style=3D"border-top:1px solid #ced4da;
+padding:8px 12px 0 0;text-align:left;vertical-align:top;" valign=3D"top">
+<span style=3D"vertical-align:middle;font-size:14px;">2</span> <img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/4=
+a7aca79-2ec0-4744-afd4-017cd4e1928b/89x65.png" width=3D"16" =
+style=3D"vertical-align:middle;">
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Sold 1 </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Live Listings<br>
+2 <br>
+<br>
+Median Age<br>
+48 days </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Total Sold <br>
+4 <span style=3D"color:#6c757d">&nbsp;|&nbsp;2 </span><br>
+<br>
+Median Sold<br>
+$2,375,000 <br>
+<br>
+Avg Days Listed<br>
+26 days </td>
+</tr>
+<tr>
+<td style=3D"border-top:1px solid #ced4da;
+padding:8px 12px 0 0;text-align:left;vertical-align:top;" valign=3D"top">
+<span style=3D"vertical-align:middle;font-size:14px;">3</span> <img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/4=
+a7aca79-2ec0-4744-afd4-017cd4e1928b/89x65.png" width=3D"16" =
+style=3D"vertical-align:middle;">
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Sold 1<br>
+Price Increase 1 </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Live Listings<br>
+7 <br>
+<br>
+Median Age<br>
+45 days </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Total Sold <br>
+24 <span style=3D"color:#6c757d">&nbsp;|&nbsp;9 </span><br>
+<br>
+Median Sold<br>
+$3,000,000 <br>
+<br>
+Avg Days Listed<br>
+33 days </td>
+</tr>
+<tr>
+<td style=3D"border-top:1px solid #ced4da;
+padding:8px 12px 0 0;text-align:left;vertical-align:top;" valign=3D"top">
+<span style=3D"vertical-align:middle;font-size:14px;">4</span> <img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/4=
+a7aca79-2ec0-4744-afd4-017cd4e1928b/89x65.png" width=3D"16" =
+style=3D"vertical-align:middle;">
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Price Drop 1<br>
+Sold 1 </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Live Listings<br>
+13 <br>
+<br>
+Median Age<br>
+52 days </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Total Sold <br>
+17 <span style=3D"color:#6c757d">&nbsp;|&nbsp;6 </span><br>
+<br>
+Median Sold<br>
+$4,190,000 <br>
+<br>
+Avg Days Listed<br>
+36 days </td>
+</tr>
+<tr>
+<td style=3D"border-top:1px solid #ced4da;
+padding:8px 12px 0 0;text-align:left;vertical-align:top;" valign=3D"top">
+<span style=3D"vertical-align:middle;font-size:14px;">5</span> <img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/4=
+a7aca79-2ec0-4744-afd4-017cd4e1928b/89x65.png" width=3D"16" =
+style=3D"vertical-align:middle;">
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Price Drop 2<br>
+Price Increase 1<br>
+Sold 1 </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Live Listings<br>
+9 <br>
+<br>
+Median Age<br>
+38 days </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Total Sold <br>
+15 <span style=3D"color:#6c757d">&nbsp;|&nbsp;7 </span><br>
+<br>
+Median Sold<br>
+$5,080,000 <br>
+<br>
+Avg Days Listed<br>
+40 days </td>
+</tr>
+<tr>
+<td style=3D"border-top:1px solid #ced4da;
+padding:8px 12px 0 0;text-align:left;vertical-align:top;" valign=3D"top">
+<span style=3D"vertical-align:middle;font-size:14px;">6</span> <img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/4=
+a7aca79-2ec0-4744-afd4-017cd4e1928b/89x65.png" width=3D"16" =
+style=3D"vertical-align:middle;">
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top"><span style=3D"color:#6c757d">No Updates</span>
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Live Listings<br>
+1 <br>
+<br>
+Median Age<br>
+37 days </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Total Sold <br>
+2 <span style=3D"color:#6c757d">&nbsp;|&nbsp;1 </span><br>
+<br>
+Median Sold<br>
+$6,779,000 <br>
+<br>
+Avg Days Listed<br>
+34 days </td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style=3D"margin-top:24px">
+<div style=3D"padding-bottom:16px;border-bottom:1px solid =
+#443894;margin:32px 0;width:100%">
+<img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/6=
+f86a23a-8c64-4bf4-92a1-1b5fddb573d4/321x328.png" style=3D"width:36px; =
+height:36; vertical-align:middle" width=3D"36" height=3D"36">
+<span =
+style=3D"vertical-align:middle;margin-left:8px;font-size:28px;font-weight:=
+600;color:#343a40">
+WILLOUGHBY EAST </span></div>
+<h3 style=3D"font-size:20px;font-weight:600;color:#1a1a1a;margin:48px 0 =
+24px;letter-spacing:-0.01em">
+Apartment </h3>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" =
+style=3D"font:13px =
+Helvetica,Arial,sans-serif;color:#222;margin-bottom:48px;border-radius:8px=
+;box-shadow:0 1px 3px rgba(0,0,0,.05);line-height:22px;">
+<thead valign=3D"top">
+<tr style=3D"background:#f8f9fa">
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Bed</th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Updates<br>
+<span style=3D"font-size:12px;color:#6c757d">Last week</span></th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Listings</th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Sold<br>
+<span style=3D"font-size:12px;color:#6c757d">6 Mo&nbsp;|&nbsp;3 =
+Mo</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan=3D"4" =
+style=3D"padding:12px;text-align:center;color:#6c757d;">No Apartment =
+data for this suburb
+</td>
+</tr>
+</tbody>
+</table>
+<h3 style=3D"font-size:20px;font-weight:600;color:#1a1a1a;margin:48px 0 =
+24px;letter-spacing:-0.01em">
+House </h3>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" =
+style=3D"font:13px =
+Helvetica,Arial,sans-serif;color:#222;margin-bottom:48px;border-radius:8px=
+;box-shadow:0 1px 3px rgba(0,0,0,.05);line-height:22px;">
+<thead valign=3D"top">
+<tr style=3D"background:#f8f9fa">
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Bed</th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Updates<br>
+<span style=3D"font-size:12px;color:#6c757d">Last week</span></th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Listings</th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Sold<br>
+<span style=3D"font-size:12px;color:#6c757d">6 Mo&nbsp;|&nbsp;3 =
+Mo</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan=3D"4" =
+style=3D"padding:12px;text-align:center;color:#6c757d;">No House data =
+for this suburb
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style=3D"margin-top:24px">
+<div style=3D"padding-bottom:16px;border-bottom:1px solid =
+#443894;margin:32px 0;width:100%">
+<img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/6=
+f86a23a-8c64-4bf4-92a1-1b5fddb573d4/321x328.png" style=3D"width:36px; =
+height:36; vertical-align:middle" width=3D"36" height=3D"36">
+<span =
+style=3D"vertical-align:middle;margin-left:8px;font-size:28px;font-weight:=
+600;color:#343a40">
+ARTARMON </span></div>
+<h3 style=3D"font-size:20px;font-weight:600;color:#1a1a1a;margin:48px 0 =
+24px;letter-spacing:-0.01em">
+Apartment </h3>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" =
+style=3D"font:13px =
+Helvetica,Arial,sans-serif;color:#222;margin-bottom:48px;border-radius:8px=
+;box-shadow:0 1px 3px rgba(0,0,0,.05);line-height:22px;">
+<thead valign=3D"top">
+<tr style=3D"background:#f8f9fa">
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Bed</th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Updates<br>
+<span style=3D"font-size:12px;color:#6c757d">Last week</span></th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Listings</th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Sold<br>
+<span style=3D"font-size:12px;color:#6c757d">6 Mo&nbsp;|&nbsp;3 =
+Mo</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style=3D"border-top:1px solid #ced4da;
+padding:8px 12px 0 0;text-align:left;vertical-align:top;" valign=3D"top">
+<span style=3D"vertical-align:middle;font-size:14px;">1</span> <img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/4=
+a7aca79-2ec0-4744-afd4-017cd4e1928b/89x65.png" width=3D"16" =
+style=3D"vertical-align:middle;">
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Price Increase 2
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Live Listings<br>
+1 <br>
+<br>
+Median Age<br>
+17 days </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Total Sold <br>
+7 <span style=3D"color:#6c757d">&nbsp;|&nbsp;5 </span><br>
+<br>
+Median Sold<br>
+$812,000 <br>
+<br>
+Avg Days Listed<br>
+75 days </td>
+</tr>
+<tr>
+<td style=3D"border-top:1px solid #ced4da;
+padding:8px 12px 0 0;text-align:left;vertical-align:top;" valign=3D"top">
+<span style=3D"vertical-align:middle;font-size:14px;">2</span> <img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/4=
+a7aca79-2ec0-4744-afd4-017cd4e1928b/89x65.png" width=3D"16" =
+style=3D"vertical-align:middle;">
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top"><span style=3D"color:#6c757d">No Updates</span>
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Live Listings<br>
+6 <br>
+<br>
+Median Age<br>
+36 days </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Total Sold <br>
+47 <span style=3D"color:#6c757d">&nbsp;|&nbsp;22 </span><br>
+<br>
+Median Sold<br>
+$1,130,000 <br>
+<br>
+Avg Days Listed<br>
+53 days </td>
+</tr>
+<tr>
+<td style=3D"border-top:1px solid #ced4da;
+padding:8px 12px 0 0;text-align:left;vertical-align:top;" valign=3D"top">
+<span style=3D"vertical-align:middle;font-size:14px;">3</span> <img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/4=
+a7aca79-2ec0-4744-afd4-017cd4e1928b/89x65.png" width=3D"16" =
+style=3D"vertical-align:middle;">
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Newly Listed 1
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Live Listings<br>
+1 <br>
+<br>
+Median Age<br>
+3 days </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Total Sold <br>
+10 <span style=3D"color:#6c757d">&nbsp;|&nbsp;2 </span><br>
+<br>
+Median Sold<br>
+$1,555,000 <br>
+<br>
+Avg Days Listed<br>
+80 days </td>
+</tr>
+</tbody>
+</table>
+<h3 style=3D"font-size:20px;font-weight:600;color:#1a1a1a;margin:48px 0 =
+24px;letter-spacing:-0.01em">
+House </h3>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" =
+style=3D"font:13px =
+Helvetica,Arial,sans-serif;color:#222;margin-bottom:48px;border-radius:8px=
+;box-shadow:0 1px 3px rgba(0,0,0,.05);line-height:22px;">
+<thead valign=3D"top">
+<tr style=3D"background:#f8f9fa">
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Bed</th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Updates<br>
+<span style=3D"font-size:12px;color:#6c757d">Last week</span></th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Listings</th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Sold<br>
+<span style=3D"font-size:12px;color:#6c757d">6 Mo&nbsp;|&nbsp;3 =
+Mo</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style=3D"border-top:1px solid #ced4da;
+padding:8px 12px 0 0;text-align:left;vertical-align:top;" valign=3D"top">
+<span style=3D"vertical-align:middle;font-size:14px;">3</span> <img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/4=
+a7aca79-2ec0-4744-afd4-017cd4e1928b/89x65.png" width=3D"16" =
+style=3D"vertical-align:middle;">
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top"><span style=3D"color:#6c757d">No Updates</span>
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Live Listings<br>
+2 <br>
+<br>
+Median Age<br>
+20 days </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Total Sold <br>
+3 <span style=3D"color:#6c757d">&nbsp;|&nbsp;1 </span><br>
+<br>
+Median Sold<br>
+$3,500,000 <br>
+<br>
+Avg Days Listed<br>
+46 days </td>
+</tr>
+<tr>
+<td style=3D"border-top:1px solid #ced4da;
+padding:8px 12px 0 0;text-align:left;vertical-align:top;" valign=3D"top">
+<span style=3D"vertical-align:middle;font-size:14px;">4</span> <img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/4=
+a7aca79-2ec0-4744-afd4-017cd4e1928b/89x65.png" width=3D"16" =
+style=3D"vertical-align:middle;">
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Sold 1 </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Live Listings<br>
+2 <br>
+<br>
+Median Age<br>
+27 days </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Total Sold <br>
+7 <span style=3D"color:#6c757d">&nbsp;|&nbsp;5 </span><br>
+<br>
+Median Sold<br>
+$3,620,000 <br>
+<br>
+Avg Days Listed<br>
+37 days </td>
+</tr>
+<tr>
+<td style=3D"border-top:1px solid #ced4da;
+padding:8px 12px 0 0;text-align:left;vertical-align:top;" valign=3D"top">
+<span style=3D"vertical-align:middle;font-size:14px;">5</span> <img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/4=
+a7aca79-2ec0-4744-afd4-017cd4e1928b/89x65.png" width=3D"16" =
+style=3D"vertical-align:middle;">
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top"><span style=3D"color:#6c757d">No Updates</span>
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Live Listings<br>
+3 <br>
+<br>
+Median Age<br>
+24 days </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Total Sold <br>
+1 <span style=3D"color:#6c757d">&nbsp;|&nbsp;0 </span><br>
+<br>
+Median Sold<br>
+$2,725,000 <br>
+<br>
+Avg Days Listed<br>
+48 days </td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style=3D"margin-top:24px">
+<div style=3D"padding-bottom:16px;border-bottom:1px solid =
+#443894;margin:32px 0;width:100%">
+<img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/6=
+f86a23a-8c64-4bf4-92a1-1b5fddb573d4/321x328.png" style=3D"width:36px; =
+height:36; vertical-align:middle" width=3D"36" height=3D"36">
+<span =
+style=3D"vertical-align:middle;margin-left:8px;font-size:28px;font-weight:=
+600;color:#343a40">
+MIDDLE COVE </span></div>
+<h3 style=3D"font-size:20px;font-weight:600;color:#1a1a1a;margin:48px 0 =
+24px;letter-spacing:-0.01em">
+Apartment </h3>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" =
+style=3D"font:13px =
+Helvetica,Arial,sans-serif;color:#222;margin-bottom:48px;border-radius:8px=
+;box-shadow:0 1px 3px rgba(0,0,0,.05);line-height:22px;">
+<thead valign=3D"top">
+<tr style=3D"background:#f8f9fa">
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Bed</th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Updates<br>
+<span style=3D"font-size:12px;color:#6c757d">Last week</span></th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Listings</th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Sold<br>
+<span style=3D"font-size:12px;color:#6c757d">6 Mo&nbsp;|&nbsp;3 =
+Mo</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan=3D"4" =
+style=3D"padding:12px;text-align:center;color:#6c757d;">No Apartment =
+data for this suburb
+</td>
+</tr>
+</tbody>
+</table>
+<h3 style=3D"font-size:20px;font-weight:600;color:#1a1a1a;margin:48px 0 =
+24px;letter-spacing:-0.01em">
+House </h3>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" =
+style=3D"font:13px =
+Helvetica,Arial,sans-serif;color:#222;margin-bottom:48px;border-radius:8px=
+;box-shadow:0 1px 3px rgba(0,0,0,.05);line-height:22px;">
+<thead valign=3D"top">
+<tr style=3D"background:#f8f9fa">
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Bed</th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Updates<br>
+<span style=3D"font-size:12px;color:#6c757d">Last week</span></th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Listings</th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Sold<br>
+<span style=3D"font-size:12px;color:#6c757d">6 Mo&nbsp;|&nbsp;3 =
+Mo</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style=3D"border-top:1px solid #ced4da;
+padding:8px 12px 0 0;text-align:left;vertical-align:top;" valign=3D"top">
+<span style=3D"vertical-align:middle;font-size:14px;">4</span> <img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/4=
+a7aca79-2ec0-4744-afd4-017cd4e1928b/89x65.png" width=3D"16" =
+style=3D"vertical-align:middle;">
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Newly Listed 1<br>
+Price Increase 1<br>
+Sold 1 </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Live Listings<br>
+3 <br>
+<br>
+Median Age<br>
+34 days </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Total Sold <br>
+1 <span style=3D"color:#6c757d">&nbsp;|&nbsp;1 </span><br>
+<br>
+Median Sold<br>
+$2,718,000 <br>
+<br>
+Avg Days Listed<br>
+24 days </td>
+</tr>
+<tr>
+<td style=3D"border-top:1px solid #ced4da;
+padding:8px 12px 0 0;text-align:left;vertical-align:top;" valign=3D"top">
+<span style=3D"vertical-align:middle;font-size:14px;">5</span> <img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/4=
+a7aca79-2ec0-4744-afd4-017cd4e1928b/89x65.png" width=3D"16" =
+style=3D"vertical-align:middle;">
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top"><span style=3D"color:#6c757d">No Updates</span>
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Live Listings<br>
+4 <br>
+<br>
+Median Age<br>
+31 days </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Total Sold <br>
+3 <span style=3D"color:#6c757d">&nbsp;|&nbsp;0 </span><br>
+<br>
+Median Sold<br>
+$5,050,000 <br>
+<br>
+Avg Days Listed<br>
+24 days </td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style=3D"margin-top:24px">
+<div style=3D"padding-bottom:16px;border-bottom:1px solid =
+#443894;margin:32px 0;width:100%">
+<img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/6=
+f86a23a-8c64-4bf4-92a1-1b5fddb573d4/321x328.png" style=3D"width:36px; =
+height:36; vertical-align:middle" width=3D"36" height=3D"36">
+<span =
+style=3D"vertical-align:middle;margin-left:8px;font-size:28px;font-weight:=
+600;color:#343a40">
+NAREMBURN </span></div>
+<h3 style=3D"font-size:20px;font-weight:600;color:#1a1a1a;margin:48px 0 =
+24px;letter-spacing:-0.01em">
+Apartment </h3>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" =
+style=3D"font:13px =
+Helvetica,Arial,sans-serif;color:#222;margin-bottom:48px;border-radius:8px=
+;box-shadow:0 1px 3px rgba(0,0,0,.05);line-height:22px;">
+<thead valign=3D"top">
+<tr style=3D"background:#f8f9fa">
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Bed</th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Updates<br>
+<span style=3D"font-size:12px;color:#6c757d">Last week</span></th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Listings</th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Sold<br>
+<span style=3D"font-size:12px;color:#6c757d">6 Mo&nbsp;|&nbsp;3 =
+Mo</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style=3D"border-top:1px solid #ced4da;
+padding:8px 12px 0 0;text-align:left;vertical-align:top;" valign=3D"top">
+<span style=3D"vertical-align:middle;font-size:14px;">1</span> <img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/4=
+a7aca79-2ec0-4744-afd4-017cd4e1928b/89x65.png" width=3D"16" =
+style=3D"vertical-align:middle;">
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top"><span style=3D"color:#6c757d">No Updates</span>
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Live Listings<br>
+1 <br>
+<br>
+Median Age<br>
+1098 days </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Total Sold <br>
+6 <span style=3D"color:#6c757d">&nbsp;|&nbsp;3 </span><br>
+<br>
+Median Sold<br>
+$795,000 <br>
+<br>
+Avg Days Listed<br>
+133 days </td>
+</tr>
+<tr>
+<td style=3D"border-top:1px solid #ced4da;
+padding:8px 12px 0 0;text-align:left;vertical-align:top;" valign=3D"top">
+<span style=3D"vertical-align:middle;font-size:14px;">2</span> <img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/4=
+a7aca79-2ec0-4744-afd4-017cd4e1928b/89x65.png" width=3D"16" =
+style=3D"vertical-align:middle;">
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Newly Listed 2
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Live Listings<br>
+5 <br>
+<br>
+Median Age<br>
+6 days </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Total Sold <br>
+16 <span style=3D"color:#6c757d">&nbsp;|&nbsp;5 </span><br>
+<br>
+Median Sold<br>
+$1,342,500 <br>
+<br>
+Avg Days Listed<br>
+40 days </td>
+</tr>
+<tr>
+<td style=3D"border-top:1px solid #ced4da;
+padding:8px 12px 0 0;text-align:left;vertical-align:top;" valign=3D"top">
+<span style=3D"vertical-align:middle;font-size:14px;">3</span> <img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/4=
+a7aca79-2ec0-4744-afd4-017cd4e1928b/89x65.png" width=3D"16" =
+style=3D"vertical-align:middle;">
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Sold 1 </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Live Listings<br>
+1 <br>
+<br>
+Median Age<br>
+32 days </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Total Sold <br>
+3 <span style=3D"color:#6c757d">&nbsp;|&nbsp;2 </span><br>
+<br>
+Median Sold<br>
+$1,812,500 <br>
+<br>
+Avg Days Listed<br>
+44 days </td>
+</tr>
+</tbody>
+</table>
+<h3 style=3D"font-size:20px;font-weight:600;color:#1a1a1a;margin:48px 0 =
+24px;letter-spacing:-0.01em">
+House </h3>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" =
+style=3D"font:13px =
+Helvetica,Arial,sans-serif;color:#222;margin-bottom:48px;border-radius:8px=
+;box-shadow:0 1px 3px rgba(0,0,0,.05);line-height:22px;">
+<thead valign=3D"top">
+<tr style=3D"background:#f8f9fa">
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Bed</th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Updates<br>
+<span style=3D"font-size:12px;color:#6c757d">Last week</span></th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Listings</th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Sold<br>
+<span style=3D"font-size:12px;color:#6c757d">6 Mo&nbsp;|&nbsp;3 =
+Mo</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style=3D"border-top:1px solid #ced4da;
+padding:8px 12px 0 0;text-align:left;vertical-align:top;" valign=3D"top">
+<span style=3D"vertical-align:middle;font-size:14px;">3</span> <img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/4=
+a7aca79-2ec0-4744-afd4-017cd4e1928b/89x65.png" width=3D"16" =
+style=3D"vertical-align:middle;">
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top"><span style=3D"color:#6c757d">No Updates</span>
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Live Listings<br>
+2 <br>
+<br>
+Median Age<br>
+13 days </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Total Sold <br>
+14 <span style=3D"color:#6c757d">&nbsp;|&nbsp;4 </span><br>
+<br>
+Median Sold<br>
+$3,125,444 <br>
+<br>
+Avg Days Listed<br>
+41 days </td>
+</tr>
+<tr>
+<td style=3D"border-top:1px solid #ced4da;
+padding:8px 12px 0 0;text-align:left;vertical-align:top;" valign=3D"top">
+<span style=3D"vertical-align:middle;font-size:14px;">4</span> <img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/4=
+a7aca79-2ec0-4744-afd4-017cd4e1928b/89x65.png" width=3D"16" =
+style=3D"vertical-align:middle;">
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top"><span style=3D"color:#6c757d">No Updates</span>
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Live Listings<br>
+4 <br>
+<br>
+Median Age<br>
+24 days </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Total Sold <br>
+6 <span style=3D"color:#6c757d">&nbsp;|&nbsp;3 </span><br>
+<br>
+Median Sold<br>
+$3,912,000 <br>
+<br>
+Avg Days Listed<br>
+43 days </td>
+</tr>
+<tr>
+<td style=3D"border-top:1px solid #ced4da;
+padding:8px 12px 0 0;text-align:left;vertical-align:top;" valign=3D"top">
+<span style=3D"vertical-align:middle;font-size:14px;">5</span> <img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/4=
+a7aca79-2ec0-4744-afd4-017cd4e1928b/89x65.png" width=3D"16" =
+style=3D"vertical-align:middle;">
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top"><span style=3D"color:#6c757d">No Updates</span>
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Live Listings<br>
+1 <br>
+<br>
+Median Age<br>
+67 days </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Total Sold <br>
+4 <span style=3D"color:#6c757d">&nbsp;|&nbsp;4 </span><br>
+<br>
+Median Sold<br>
+$4,369,000 <br>
+<br>
+Avg Days Listed<br>
+40 days </td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style=3D"margin-top:24px">
+<div style=3D"padding-bottom:16px;border-bottom:1px solid =
+#443894;margin:32px 0;width:100%">
+<img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/6=
+f86a23a-8c64-4bf4-92a1-1b5fddb573d4/321x328.png" style=3D"width:36px; =
+height:36; vertical-align:middle" width=3D"36" height=3D"36">
+<span =
+style=3D"vertical-align:middle;margin-left:8px;font-size:28px;font-weight:=
+600;color:#343a40">
+CASTLE COVE </span></div>
+<h3 style=3D"font-size:20px;font-weight:600;color:#1a1a1a;margin:48px 0 =
+24px;letter-spacing:-0.01em">
+Apartment </h3>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" =
+style=3D"font:13px =
+Helvetica,Arial,sans-serif;color:#222;margin-bottom:48px;border-radius:8px=
+;box-shadow:0 1px 3px rgba(0,0,0,.05);line-height:22px;">
+<thead valign=3D"top">
+<tr style=3D"background:#f8f9fa">
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Bed</th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Updates<br>
+<span style=3D"font-size:12px;color:#6c757d">Last week</span></th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Listings</th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Sold<br>
+<span style=3D"font-size:12px;color:#6c757d">6 Mo&nbsp;|&nbsp;3 =
+Mo</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style=3D"border-top:1px solid #ced4da;
+padding:8px 12px 0 0;text-align:left;vertical-align:top;" valign=3D"top">
+<span style=3D"vertical-align:middle;font-size:14px;">3</span> <img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/4=
+a7aca79-2ec0-4744-afd4-017cd4e1928b/89x65.png" width=3D"16" =
+style=3D"vertical-align:middle;">
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top"><span style=3D"color:#6c757d">No Updates</span>
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Live Listings<br>
+1 <br>
+<br>
+Median Age<br>
+507 days </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Total Sold <br>
+0 <span style=3D"color:#6c757d">&nbsp;|&nbsp;0 </span><br>
+<br>
+Median Sold<br>
+=E2=80=93 <br>
+<br>
+Avg Days Listed<br>
+=E2=80=93 </td>
+</tr>
+</tbody>
+</table>
+<h3 style=3D"font-size:20px;font-weight:600;color:#1a1a1a;margin:48px 0 =
+24px;letter-spacing:-0.01em">
+House </h3>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" =
+style=3D"font:13px =
+Helvetica,Arial,sans-serif;color:#222;margin-bottom:48px;border-radius:8px=
+;box-shadow:0 1px 3px rgba(0,0,0,.05);line-height:22px;">
+<thead valign=3D"top">
+<tr style=3D"background:#f8f9fa">
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Bed</th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Updates<br>
+<span style=3D"font-size:12px;color:#6c757d">Last week</span></th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Listings</th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Sold<br>
+<span style=3D"font-size:12px;color:#6c757d">6 Mo&nbsp;|&nbsp;3 =
+Mo</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style=3D"border-top:1px solid #ced4da;
+padding:8px 12px 0 0;text-align:left;vertical-align:top;" valign=3D"top">
+<span style=3D"vertical-align:middle;font-size:14px;">3</span> <img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/4=
+a7aca79-2ec0-4744-afd4-017cd4e1928b/89x65.png" width=3D"16" =
+style=3D"vertical-align:middle;">
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top"><span style=3D"color:#6c757d">No Updates</span>
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Live Listings<br>
+1 <br>
+<br>
+Median Age<br>
+60 days </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Total Sold <br>
+1 <span style=3D"color:#6c757d">&nbsp;|&nbsp;0 </span><br>
+<br>
+Median Sold<br>
+$3,880,000 <br>
+<br>
+Avg Days Listed<br>
+21 days </td>
+</tr>
+<tr>
+<td style=3D"border-top:1px solid #ced4da;
+padding:8px 12px 0 0;text-align:left;vertical-align:top;" valign=3D"top">
+<span style=3D"vertical-align:middle;font-size:14px;">4</span> <img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/4=
+a7aca79-2ec0-4744-afd4-017cd4e1928b/89x65.png" width=3D"16" =
+style=3D"vertical-align:middle;">
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Price Drop 1<br>
+Unlisted 1 </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Live Listings<br>
+5 <br>
+<br>
+Median Age<br>
+25 days </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Total Sold <br>
+4 <span style=3D"color:#6c757d">&nbsp;|&nbsp;0 </span><br>
+<br>
+Median Sold<br>
+$3,850,000 <br>
+<br>
+Avg Days Listed<br>
+42 days </td>
+</tr>
+<tr>
+<td style=3D"border-top:1px solid #ced4da;
+padding:8px 12px 0 0;text-align:left;vertical-align:top;" valign=3D"top">
+<span style=3D"vertical-align:middle;font-size:14px;">5</span> <img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/4=
+a7aca79-2ec0-4744-afd4-017cd4e1928b/89x65.png" width=3D"16" =
+style=3D"vertical-align:middle;">
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Price Drop 1
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Live Listings<br>
+4 <br>
+<br>
+Median Age<br>
+21 days </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Total Sold <br>
+7 <span style=3D"color:#6c757d">&nbsp;|&nbsp;3 </span><br>
+<br>
+Median Sold<br>
+$3,962,500 <br>
+<br>
+Avg Days Listed<br>
+58 days </td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style=3D"margin-top:24px">
+<div style=3D"padding-bottom:16px;border-bottom:1px solid =
+#443894;margin:32px 0;width:100%">
+<img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/6=
+f86a23a-8c64-4bf4-92a1-1b5fddb573d4/321x328.png" style=3D"width:36px; =
+height:36; vertical-align:middle" width=3D"36" height=3D"36">
+<span =
+style=3D"vertical-align:middle;margin-left:8px;font-size:28px;font-weight:=
+600;color:#343a40">
+CASTLECRAG </span></div>
+<h3 style=3D"font-size:20px;font-weight:600;color:#1a1a1a;margin:48px 0 =
+24px;letter-spacing:-0.01em">
+Apartment </h3>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" =
+style=3D"font:13px =
+Helvetica,Arial,sans-serif;color:#222;margin-bottom:48px;border-radius:8px=
+;box-shadow:0 1px 3px rgba(0,0,0,.05);line-height:22px;">
+<thead valign=3D"top">
+<tr style=3D"background:#f8f9fa">
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Bed</th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Updates<br>
+<span style=3D"font-size:12px;color:#6c757d">Last week</span></th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Listings</th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Sold<br>
+<span style=3D"font-size:12px;color:#6c757d">6 Mo&nbsp;|&nbsp;3 =
+Mo</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan=3D"4" =
+style=3D"padding:12px;text-align:center;color:#6c757d;">No Apartment =
+data for this suburb
+</td>
+</tr>
+</tbody>
+</table>
+<h3 style=3D"font-size:20px;font-weight:600;color:#1a1a1a;margin:48px 0 =
+24px;letter-spacing:-0.01em">
+House </h3>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" =
+style=3D"font:13px =
+Helvetica,Arial,sans-serif;color:#222;margin-bottom:48px;border-radius:8px=
+;box-shadow:0 1px 3px rgba(0,0,0,.05);line-height:22px;">
+<thead valign=3D"top">
+<tr style=3D"background:#f8f9fa">
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Bed</th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Updates<br>
+<span style=3D"font-size:12px;color:#6c757d">Last week</span></th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Listings</th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Sold<br>
+<span style=3D"font-size:12px;color:#6c757d">6 Mo&nbsp;|&nbsp;3 =
+Mo</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style=3D"border-top:1px solid #ced4da;
+padding:8px 12px 0 0;text-align:left;vertical-align:top;" valign=3D"top">
+<span style=3D"vertical-align:middle;font-size:14px;">4</span> <img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/4=
+a7aca79-2ec0-4744-afd4-017cd4e1928b/89x65.png" width=3D"16" =
+style=3D"vertical-align:middle;">
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Price Drop 2<br>
+Unlisted 1 </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Live Listings<br>
+6 <br>
+<br>
+Median Age<br>
+35 days </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Total Sold <br>
+4 <span style=3D"color:#6c757d">&nbsp;|&nbsp;0 </span><br>
+<br>
+Median Sold<br>
+$7,861,250 <br>
+<br>
+Avg Days Listed<br>
+114 days </td>
+</tr>
+<tr>
+<td style=3D"border-top:1px solid #ced4da;
+padding:8px 12px 0 0;text-align:left;vertical-align:top;" valign=3D"top">
+<span style=3D"vertical-align:middle;font-size:14px;">5</span> <img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/4=
+a7aca79-2ec0-4744-afd4-017cd4e1928b/89x65.png" width=3D"16" =
+style=3D"vertical-align:middle;">
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Price Increase 1
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Live Listings<br>
+3 <br>
+<br>
+Median Age<br>
+52 days </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Total Sold <br>
+8 <span style=3D"color:#6c757d">&nbsp;|&nbsp;3 </span><br>
+<br>
+Median Sold<br>
+$4,867,500 <br>
+<br>
+Avg Days Listed<br>
+39 days </td>
+</tr>
+<tr>
+<td style=3D"border-top:1px solid #ced4da;
+padding:8px 12px 0 0;text-align:left;vertical-align:top;" valign=3D"top">
+<span style=3D"vertical-align:middle;font-size:14px;">6</span> <img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/4=
+a7aca79-2ec0-4744-afd4-017cd4e1928b/89x65.png" width=3D"16" =
+style=3D"vertical-align:middle;">
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top"><span style=3D"color:#6c757d">No Updates</span>
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Live Listings<br>
+1 <br>
+<br>
+Median Age<br>
+151 days </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Total Sold <br>
+0 <span style=3D"color:#6c757d">&nbsp;|&nbsp;0 </span><br>
+<br>
+Median Sold<br>
+=E2=80=93 <br>
+<br>
+Avg Days Listed<br>
+=E2=80=93 </td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style=3D"margin-top:24px">
+<div style=3D"padding-bottom:16px;border-bottom:1px solid =
+#443894;margin:32px 0;width:100%">
+<img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/6=
+f86a23a-8c64-4bf4-92a1-1b5fddb573d4/321x328.png" style=3D"width:36px; =
+height:36; vertical-align:middle" width=3D"36" height=3D"36">
+<span =
+style=3D"vertical-align:middle;margin-left:8px;font-size:28px;font-weight:=
+600;color:#343a40">
+CHATSWOOD </span></div>
+<h3 style=3D"font-size:20px;font-weight:600;color:#1a1a1a;margin:48px 0 =
+24px;letter-spacing:-0.01em">
+House </h3>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" =
+style=3D"font:13px =
+Helvetica,Arial,sans-serif;color:#222;margin-bottom:48px;border-radius:8px=
+;box-shadow:0 1px 3px rgba(0,0,0,.05);line-height:22px;">
+<thead valign=3D"top">
+<tr style=3D"background:#f8f9fa">
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Bed</th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Updates<br>
+<span style=3D"font-size:12px;color:#6c757d">Last week</span></th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Listings</th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Sold<br>
+<span style=3D"font-size:12px;color:#6c757d">6 Mo&nbsp;|&nbsp;3 =
+Mo</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style=3D"border-top:1px solid #ced4da;
+padding:8px 12px 0 0;text-align:left;vertical-align:top;" valign=3D"top">
+<span style=3D"vertical-align:middle;font-size:14px;">3</span> <img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/4=
+a7aca79-2ec0-4744-afd4-017cd4e1928b/89x65.png" width=3D"16" =
+style=3D"vertical-align:middle;">
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Price Drop 2<br>
+Under Offer 1 </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Live Listings<br>
+7 <br>
+<br>
+Median Age<br>
+45 days </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Total Sold <br>
+21 <span style=3D"color:#6c757d">&nbsp;|&nbsp;7 </span><br>
+<br>
+Median Sold<br>
+$3,380,000 <br>
+<br>
+Avg Days Listed<br>
+44 days </td>
+</tr>
+<tr>
+<td style=3D"border-top:1px solid #ced4da;
+padding:8px 12px 0 0;text-align:left;vertical-align:top;" valign=3D"top">
+<span style=3D"vertical-align:middle;font-size:14px;">4</span> <img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/4=
+a7aca79-2ec0-4744-afd4-017cd4e1928b/89x65.png" width=3D"16" =
+style=3D"vertical-align:middle;">
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Price Drop 2<br>
+Price Increase 1<br>
+Sold 1 </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Live Listings<br>
+9 <br>
+<br>
+Median Age<br>
+25 days </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Total Sold <br>
+21 <span style=3D"color:#6c757d">&nbsp;|&nbsp;6 </span><br>
+<br>
+Median Sold<br>
+$3,502,500 <br>
+<br>
+Avg Days Listed<br>
+42 days </td>
+</tr>
+<tr>
+<td style=3D"border-top:1px solid #ced4da;
+padding:8px 12px 0 0;text-align:left;vertical-align:top;" valign=3D"top">
+<span style=3D"vertical-align:middle;font-size:14px;">5</span> <img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/4=
+a7aca79-2ec0-4744-afd4-017cd4e1928b/89x65.png" width=3D"16" =
+style=3D"vertical-align:middle;">
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Price Drop 1<br>
+Price Increase 1<br>
+Sold 1 </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Live Listings<br>
+14 <br>
+<br>
+Median Age<br>
+31 days </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Total Sold <br>
+23 <span style=3D"color:#6c757d">&nbsp;|&nbsp;10 </span><br>
+<br>
+Median Sold<br>
+$4,075,000 <br>
+<br>
+Avg Days Listed<br>
+49 days </td>
+</tr>
+<tr>
+<td style=3D"border-top:1px solid #ced4da;
+padding:8px 12px 0 0;text-align:left;vertical-align:top;" valign=3D"top">
+<span style=3D"vertical-align:middle;font-size:14px;">6</span> <img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/4=
+a7aca79-2ec0-4744-afd4-017cd4e1928b/89x65.png" width=3D"16" =
+style=3D"vertical-align:middle;">
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Newly Listed 1<br>
+Unlisted 1 </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Live Listings<br>
+2 <br>
+<br>
+Median Age<br>
+22 days </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Total Sold <br>
+1 <span style=3D"color:#6c757d">&nbsp;|&nbsp;0 </span><br>
+<br>
+Median Sold<br>
+=E2=80=93 <br>
+<br>
+Avg Days Listed<br>
+60 days </td>
+</tr>
+</tbody>
+</table>
+<h3 style=3D"font-size:20px;font-weight:600;color:#1a1a1a;margin:48px 0 =
+24px;letter-spacing:-0.01em">
+Apartment </h3>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" =
+style=3D"font:13px =
+Helvetica,Arial,sans-serif;color:#222;margin-bottom:48px;border-radius:8px=
+;box-shadow:0 1px 3px rgba(0,0,0,.05);line-height:22px;">
+<thead valign=3D"top">
+<tr style=3D"background:#f8f9fa">
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Bed</th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Updates<br>
+<span style=3D"font-size:12px;color:#6c757d">Last week</span></th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Listings</th>
+<th style=3D"padding:16px =
+4px;text-align:left;font-weight:600;font-size:13px;color:#1a1a1a;text-tran=
+sform:uppercase">
+Sold<br>
+<span style=3D"font-size:12px;color:#6c757d">6 Mo&nbsp;|&nbsp;3 =
+Mo</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style=3D"border-top:1px solid #ced4da;
+padding:8px 12px 0 0;text-align:left;vertical-align:top;" valign=3D"top">
+<span style=3D"vertical-align:middle;font-size:14px;">1</span> <img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/4=
+a7aca79-2ec0-4744-afd4-017cd4e1928b/89x65.png" width=3D"16" =
+style=3D"vertical-align:middle;">
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Newly Listed 9<br>
+Price Drop 1<br>
+Price Increase 2 </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Live Listings<br>
+27 <br>
+<br>
+Median Age<br>
+23 days </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Total Sold <br>
+27 <span style=3D"color:#6c757d">&nbsp;|&nbsp;8 </span><br>
+<br>
+Median Sold<br>
+$812,500 <br>
+<br>
+Avg Days Listed<br>
+73 days </td>
+</tr>
+<tr>
+<td style=3D"border-top:1px solid #ced4da;
+padding:8px 12px 0 0;text-align:left;vertical-align:top;" valign=3D"top">
+<span style=3D"vertical-align:middle;font-size:14px;">2</span> <img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/4=
+a7aca79-2ec0-4744-afd4-017cd4e1928b/89x65.png" width=3D"16" =
+style=3D"vertical-align:middle;">
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Sold 2<br>
+Newly Listed 14<br>
+Price Drop 1 </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Live Listings<br>
+41 <br>
+<br>
+Median Age<br>
+18 days </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Total Sold <br>
+50 <span style=3D"color:#6c757d">&nbsp;|&nbsp;22 </span><br>
+<br>
+Median Sold<br>
+$1,189,344 <br>
+<br>
+Avg Days Listed<br>
+57 days </td>
+</tr>
+<tr>
+<td style=3D"border-top:1px solid #ced4da;
+padding:8px 12px 0 0;text-align:left;vertical-align:top;" valign=3D"top">
+<span style=3D"vertical-align:middle;font-size:14px;">3</span> <img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/4=
+a7aca79-2ec0-4744-afd4-017cd4e1928b/89x65.png" width=3D"16" =
+style=3D"vertical-align:middle;">
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Sold 1<br>
+Newly Listed 6 </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Live Listings<br>
+24 <br>
+<br>
+Median Age<br>
+66 days </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Total Sold <br>
+18 <span style=3D"color:#6c757d">&nbsp;|&nbsp;7 </span><br>
+<br>
+Median Sold<br>
+$1,700,000 <br>
+<br>
+Avg Days Listed<br>
+66 days </td>
+</tr>
+<tr>
+<td style=3D"border-top:1px solid #ced4da;
+padding:8px 12px 0 0;text-align:left;vertical-align:top;" valign=3D"top">
+<span style=3D"vertical-align:middle;font-size:14px;">4</span> <img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/4=
+a7aca79-2ec0-4744-afd4-017cd4e1928b/89x65.png" width=3D"16" =
+style=3D"vertical-align:middle;">
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top"><span style=3D"color:#6c757d">No Updates</span>
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Live Listings<br>
+2 <br>
+<br>
+Median Age<br>
+37 days </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Total Sold <br>
+1 <span style=3D"color:#6c757d">&nbsp;|&nbsp;0 </span><br>
+<br>
+Median Sold<br>
+$4,760,000 <br>
+<br>
+Avg Days Listed<br>
+81 days </td>
+</tr>
+<tr>
+<td style=3D"border-top:1px solid #ced4da;
+padding:8px 12px 0 0;text-align:left;vertical-align:top;" valign=3D"top">
+<span style=3D"vertical-align:middle;font-size:14px;">5</span> <img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/4=
+a7aca79-2ec0-4744-afd4-017cd4e1928b/89x65.png" width=3D"16" =
+style=3D"vertical-align:middle;">
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top"><span style=3D"color:#6c757d">No Updates</span>
+</td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Live Listings<br>
+1 <br>
+<br>
+Median Age<br>
+26 days </td>
+<td style=3D"border-top:1px solid #ced4da;padding:8px 4px" =
+valign=3D"top">Total Sold <br>
+0 <span style=3D"color:#6c757d">&nbsp;|&nbsp;0 </span><br>
+<br>
+Median Sold<br>
+=E2=80=93 <br>
+<br>
+Avg Days Listed<br>
+=E2=80=93 </td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style=3D"text-align:center;font:14px =
+Helvetica,Arial;color:#6c757d;padding:20px 0;">
+That's all for today! Want to refine your preferences?<br>
+<a =
+href=3D"http://url8771.proping.com.au/ls/click?upn=3Du001.tjt9S62NpaFC5Xsv=
+h1WPD-2B0SOWYo4YGGDRg3gSmf8esFJWYileVoaTx9m-2FQxL-2FMDyspx_4OmvopZT8m1QHj0=
+snBFJ0-2FKGsORUExuLzFhulZQsWDim-2BiyeQS48GVAWLITeIoBRXn509YDOmjkuD1cuIwN-2=
+B886XTD626gFBuzQY-2BC3OzN00dqA2Hayrm7lZLaZM2YU5QaV-2BC-2F7sX3bNEubjxjHlwfq=
+6Pobpbk2aCXZO-2BBtRwySwHNPu-2Bjrm9Xvr5VyzPSqh1OzhC2IUyZMlE4kSMXp-2FXWzJovr=
+Tb2MMAdvjwIUTnarUNUSdDVdj13rgvla-2BY5MduMtFBsV6DzWRDPDfsrrOIfy9G0K9doDUAri=
+Zbsjraja03kn59VfqheEs1IBkqZee5SRUEnEC9KzqH-2FUY08wYmg-3D-3D" =
+style=3D"display:inline-block;font-size:14px;line-height:45px;height:45px;=
+text-decoration:none;color:#fefefe;background:#443894;width:250px;border-r=
+adius:4px;margin:16px;">Manage
+ pings</a><br>
+If you haven't set up your own ping yet, <a style=3D"color:#6c757d" =
+href=3D"http://url8771.proping.com.au/ls/click?upn=3Du001.S4M6ZzZAtRCX50F9=
+fpski0sKSYD3XJ1bLoMf1v3DlH3E2Tq7Nq7UZho-2BxCuWikJYxfEb_4OmvopZT8m1QHj0snBF=
+J0-2FKGsORUExuLzFhulZQsWDim-2BiyeQS48GVAWLITeIoBRXn509YDOmjkuD1cuIwN-2B886=
+XTD626gFBuzQY-2BC3OzN00dqA2Hayrm7lZLaZM2YU5QaV-2BC-2F7sX3bNEubjxjHlwfq6Pob=
+pbk2aCXZO-2BBtRwySwHNPu-2Bjrm9Xvr5VyzPSqh1OzhC2IUyZMlE4kSMXp-2FXac0ucL2O9c=
+-2BYSE49NxiZ54Z-2FhUmDs8keQUsNsrCzLeUlj-2BH4u9luJJW46MQ0BHowJPsk4OiPJsAJmz=
+De-2Fa1XMl7dM1vW2lA-2FsWwK3fB6i135l25w-2FXPW9-2Bga1NdiGV50A-3D-3D">
+click here to signup</a><br>
+<br>
+<a =
+href=3D"http://url8771.proping.com.au/ls/click?upn=3Du001.tjt9S62NpaFC5Xsv=
+h1WPD08BjuHS3VrMrUQ0zLUMV3Y-3DPRDa_4OmvopZT8m1QHj0snBFJ0-2FKGsORUExuLzFhul=
+ZQsWDim-2BiyeQS48GVAWLITeIoBRXn509YDOmjkuD1cuIwN-2B886XTD626gFBuzQY-2BC3Oz=
+N00dqA2Hayrm7lZLaZM2YU5QaV-2BC-2F7sX3bNEubjxjHlwfq6Pobpbk2aCXZO-2BBtRwySwH=
+NPu-2Bjrm9Xvr5VyzPSqh1OzhC2IUyZMlE4kSMXp-2FXVU-2Bv1QRRO5G0aGdy1PmK-2F-2BU6=
+EJ23LH92qb8XoURXzGC-2Bm-2Fz4TAfsEXM7u-2FDrOlrjkUTl-2B6-2BcAhS-2BidgGiIQYwg=
+vNSxHXEzyuw7vp7DKteeqh5fkT6f5kEFsN-2BzlV9O8eg-3D-3D"><img width=3D"100" =
+height=3D"24" style=3D"display:block;width:100px; height:24px =
+;padding-bottom:20px;margin:auto" =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/9=
+0ffcfba-9586-415e-8bdc-1f75bc4c0295/3608x800.png"></a>
+<img style=3D"display:block;width:100px;padding-bottom:20px;margin:auto" =
+width=3D"100" height=3D"14" =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/a=
+2aa6b56-6682-43c0-aaf1-3ca1e22986a1/1762x225.png">
+<div =
+style=3D"font-size:12px;max-width:500px;margin:auto;text-align:left">Discl=
+aimer: While Proping makes every effort to ensure data integrity, no =
+representations or warranties are made as to the accuracy, completeness, =
+or reliability of the information provided.
+ Proping accepts no liability for any errors, omissions, or reliance =
+placed on this data. The content of this email and any attachments is =
+confidential and intended only for the recipient. If you are not the =
+intended recipient, any use, distribution, or copying
+ of this message or its attachments is strictly prohibited. Please read =
+our terms of service for more details.<a =
+href=3D"http://url8771.proping.com.au/ls/click?upn=3Du001.tjt9S62NpaFC5Xsv=
+h1WPD9L8upP-2FwQCIYWaC2YyNL9TcN1HrswTb-2BmbHKhAUTB7fH48f_4OmvopZT8m1QHj0sn=
+BFJ0-2FKGsORUExuLzFhulZQsWDim-2BiyeQS48GVAWLITeIoBRXn509YDOmjkuD1cuIwN-2B8=
+86XTD626gFBuzQY-2BC3OzN00dqA2Hayrm7lZLaZM2YU5QaV-2BC-2F7sX3bNEubjxjHlwfq6P=
+obpbk2aCXZO-2BBtRwySwHNPu-2Bjrm9Xvr5VyzPSqh1OzhC2IUyZMlE4kSMXp-2FXTuI5XZYs=
+xWDn4dyicr1ls4BAEdHK5jwDf2jQdpc0zciFHp29QGriQzSUQ4tCPXXVfu3Q6vv3KG9AAE2pUN=
+UEVhgRKg4nmAL7-2B7zRuBuGgNMZkbFTjsJ-2FORe4JqljEy4ZA-3D-3D">terms
+ of service</a>.</div>
+<div style=3D"font-size:12px;padding-top:40px">If you would like to stop =
+receiving these TRENDS emails
+<a =
+href=3D"http://url8771.proping.com.au/ls/click?upn=3Du001.tjt9S62NpaFC5Xsv=
+h1WPD0mAbvMGFHxDRutqLn0sn3nAZCm9bX0nQ7frAq-2BWPd4il59cSpUmx3KSCMNBlU5k-2BR=
+e4SAiqTykVyPTcUSDUeo0-3Do0cy_4OmvopZT8m1QHj0snBFJ0-2FKGsORUExuLzFhulZQsWDi=
+m-2BiyeQS48GVAWLITeIoBRXn509YDOmjkuD1cuIwN-2B886XTD626gFBuzQY-2BC3OzN00dqA=
+2Hayrm7lZLaZM2YU5QaV-2BC-2F7sX3bNEubjxjHlwfq6Pobpbk2aCXZO-2BBtRwySwHNPu-2B=
+jrm9Xvr5VyzPSqh1OzhC2IUyZMlE4kSMXp-2FXUL-2BI9juA7kTwOzL-2FcSqtw8JkS6pVOPv4=
+j6esULkCc1vzhcFW1DbyDxqcLTJ0tQj0W-2B955obUtfKDe-2FDIav7MvZoYlpkmfC4x4cIs2r=
+rX2rexbjSj56Vv3g1eahM-2BDVsIA-3D-3D">
+CLICK HERE</a></div>
+</div>
+</div>
+<img =
+src=3D"http://url8771.proping.com.au/wf/open?upn=3Du001.1s5IkeA90i9fkdWFZh=
+-2Bf-2BjkmhLj09-2FbpeTa0S2xd1-2FB-2FBFjkJuZkJP4XiKXD0li0T4Zgy4jZzklgT4gaKN=
+C3xbt5Ov8eljq2PL5FiXsYiK-2FhJnRxdcO8ypTkGtXe0gId-2Bsq8jRDYA80m8WAACEsbdJfz=
+h-2Fw2y7HAkGQlpnM-2FYC3x9cD4SgJgU31h1u8fdc-2FRa4GrGX9eBJ4Qriu-2F-2Bansbxrv=
+AQ8VrKG9450F8-2FzvO17JgTD6jWa0b-2BYqIEZSUNnpl4TqtfCIGGIHCaEztSTFaE4FFehJJi=
+Adgmb4eKPSDjpUBqGyzzimT7zJInD-2Bzrud5-2BnkBv0Z7jyCiFAkJ-2Bcvf6fggOa0gdsPu3=
+wh01bWMYQ-3D" alt=3D"" width=3D"1" height=3D"1" border=3D"0" =
+style=3D"height:1px !important;width:1px !important;border-width:0 =
+!important;margin-top:0 !important;margin-bottom:0 =
+!important;margin-right:0 !important;margin-left:0 =
+!important;padding-top:0 !important;padding-bottom:0 =
+!important;padding-right:0 !important;padding-left:0 !important;"></div>
+</div>
+</blockquote>
+</div>
+<br>
+</div>
+
+</div></blockquote></div><br></body></html>=
+
+--Apple-Mail=_C892C3F4-0D54-46F5-A430-CF6D2C6B92B7--

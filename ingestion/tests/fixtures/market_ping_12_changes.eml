@@ -1,0 +1,1178 @@
+Delivered-To: chitrakar.ritesh@cloco.co.jp
+Received: by 2002:a05:7000:3e1e:b0:83d:3c7f:3576 with SMTP id bd30csp249896mab;
+        Thu, 26 Mar 2026 20:48:05 -0700 (PDT)
+X-Received: by 2002:a05:6a20:3d21:b0:39c:2ca:7431 with SMTP id adf61e73a8af0-39c8796a577mr1114713637.28.1774583284789;
+        Thu, 26 Mar 2026 20:48:04 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1774583284; cv=none;
+        d=google.com; s=arc-20240605;
+        b=iDv1OP0SkWFmlnyfgsd5XJe4nbHlCHs8W6V88h0M/vEBiKllazUuynX8nkyUvog6eO
+         oOvs4jfjEME7sm0DQBAtKkkC98AqvunybXM7E2CoWI2dyC/6Y6gcFHuElI1evoN6BJlx
+         yvRIeeciKAYr8y4BslU4Cbm5nxvAHnV5OvBJsHwpy+ZwVzUXuYsqAp9WinZ62PAseTlu
+         Tbnb+T+2SyFaFHldCqOGZov4nvXK6JvFI3RzeKYisLFjYZ+To8pW5cdMsOSS4O42UVpx
+         +QaUwHoFheZKCLB9otmyVKqS5IIRcT+MYqN2lxFnn01PBLNyuysuD/i5bLcP4MtW81Ao
+         hirw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=date:to:references:message-id:subject:mime-version:from
+         :dkim-signature;
+        bh=vGKj80lsWTUebNO0c8a3jg1wI32XJlJb+zDppoUUBVE=;
+        fh=hGmm+NI2iLIh1bRqCqPg7wrIUchW1sZJ8D2lj9/ACEY=;
+        b=Y+Zw4NfpvdlwxSaeMbpwRUp7gcxGkLN484lIALXich5YS5Mq+TSgn3Q6XXvYkk0ZDc
+         6DulI0j6WOG/SEObJ7OV50iBHxwg/PjIaOZ78eYLv/E5XD510/6EJmy64PFvYvtAXUSl
+         9SGZIYmjapmfli6k1vOQz/SkCys9E19ak8zcPKnm3rNifW48uvu4O+XuQkA9mQfAncdO
+         EnbnMV9s4aHLWywgPSmceTlkQ3BfUJ6kkfotu6yFL2l/smkqOnx9frR18YNECVgmsF7W
+         WNUi40kLYtfYrdZ5/BkOMMkY1fQ3fOyiVEPlpUM2h9uaSCzP+Jw4wjwKA3Kmaqfl0odo
+         3LUA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@bigpond.com header.s=202303 header.b=XrlY1WgG;
+       spf=pass (google.com: domain of sammieemiko@bigpond.com designates 203.42.40.163 as permitted sender) smtp.mailfrom=sammieemiko@bigpond.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=bigpond.com
+Return-Path: <sammieemiko@bigpond.com>
+Received: from exhmta19.bpe.bigpond.com (exhmta19.bpe.bigpond.com. [203.42.40.163])
+        by mx.google.com with ESMTPS id 41be03b00d2f7-c76738525e2si9005606a12.87.2026.03.26.20.48.04
+        for <chitrakar.ritesh@cloco.co.jp>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 26 Mar 2026 20:48:04 -0700 (PDT)
+Received-SPF: pass (google.com: domain of sammieemiko@bigpond.com designates 203.42.40.163 as permitted sender) client-ip=203.42.40.163;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@bigpond.com header.s=202303 header.b=XrlY1WgG;
+       spf=pass (google.com: domain of sammieemiko@bigpond.com designates 203.42.40.163 as permitted sender) smtp.mailfrom=sammieemiko@bigpond.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=bigpond.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=bigpond.com
+	; s=202303; h=Date:To:Message-Id:Subject:Mime-Version:Content-Type:From;
+	bh=vGKj80lsWTUebNO0c8a3jg1wI32XJlJb+zDppoUUBVE=; b=XrlY1WgGGuo74DeucJIMOlp2aO
+	2D6tgKEo+3Bf/k4ojU5tay15tFkui+HFdXtuJo4l4FNI/Pm4LTjJvil2ogyE7nQss19X0qLH0373N
+	403qliqgCesXEbwG+QXU1pGe56/UcTDMwG45tPXCxPnxhwTSopY8sY+yikkvm5NyC4y533hKzKYix
+	w22V4SIbJbT6YCjj7qLWT8tNY+dO/0KkXSjkLLo5USpt0ipWqXHsTcbVd3wllqTEzsmRZU2zEB5xb
+	zQrhOCAAxa1XOic0x6CztejBUGBrzFeRbpoK81zVVJbaCY6TO3hxNJP407EBJIV45TcPea0Ek6wLD
+	n7TvSKVg==;
+Received: from exhprdcmr10
+	 by exhprdomr19 with esmtp
+	 (envelope-from <sammieemiko@bigpond.com>)
+	 id 1w5yB1-000BC1-2J
+	 for chitrakar.ritesh@cloco.co.jp;
+	Fri, 27 Mar 2026 14:48:02 +1100
+Received: from [101.115.12.120] (helo=smtpclient.apple)
+	 by exhprdcmr10 with esmtpa
+	(envelope-from <sammieemiko@bigpond.com>)
+	id 1w5yB0-000160-0l
+	for chitrakar.ritesh@cloco.co.jp;
+	Fri, 27 Mar 2026 14:48:02 +1100
+From: Sammie Lee <sammieemiko@bigpond.com>
+Content-Type: multipart/alternative;
+	boundary="Apple-Mail=_F527EEE5-81BF-44CD-9A59-4BFC4471F919"
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.400.21\))
+Subject: Fwd: Ping!! Ella, You Have 12 Changes in Your Market!
+Message-Id: <07389A24-BE77-44B8-A062-14201B7C9755@bigpond.com>
+References: <A04E3ECD-93AE-4DF1-9B31-3F84F2E60C08@theagency.com.au>
+To: chitrakar.ritesh@cloco.co.jp
+Date: Fri, 27 Mar 2026 14:47:52 +1100
+X-Mailer: Apple Mail (2.3864.400.21)
+X-tce-id: sammieemiko@bigpond.com
+X-tce-ares-id: e{23397bac-1957-42f2-8f5f-2efd51602629}17
+X-tce-spam-action-v: no action
+X-tce-spam-score-v: 0.0
+X-tce-spam-report-v: Content-length: 779
+X-VR-SPAM-STATE: 0
+X-VR-SPAM-SCORE: 0
+X-VR-SPAM-CAUSE: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdefvdelvdegucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuvffgnffuvfftteenuceurghilhhouhhtmecupfdsteenucenucfjughrpefhtggguffkfhfvfffosegrtdhmrehhtdejnecuhfhrohhmpefurghmmhhivgcunfgvvgcuoehsrghmmhhivggvmhhikhhosegsihhgphhonhgurdgtohhmqeenucggtffrrghtthgvrhhnpeffleevveeigfeigfdvledtgefghedvtdeijeelvddtgeefuefhhffgffevudetheenucffohhmrghinheprghkrgdrmhhspdhprhhophhinhhgrdgtohhmrdgruhdpughomhgrihhnrdgtohhmrdgruhenucfkphepuddtuddrudduhedruddvrdduvddtnecuvehluhhsthgvrhfuihiivgepvdenucfrrghrrghmpehmrghilhhfrhhomhepshgrmhhmihgvvghmihhkohessghighhpohhnugdrtghomhdpnhgspghrtghpthhtohepuddprhgtphhtthhopegthhhithhrrghkrghrrdhrihhtvghshhestghlohgtohdrtghordhjphdpmhhouggvpehsmhhtphhouhht
+X-tce-spam-action-c: no action
+X-tce-spam-score-c: 0.0
+X-tce-spam-report-c: Action: no action
+X-Cm-Analysis: v=2.4 cv=L83WQPT8 c=1 sm=1 tr=0 ts=69c5fdf2 a=WDxbmGi1UDWtoHyL+fmEVg==:117 a=WDxbmGi1UDWtoHyL+fmEVg==:17 a=jiCkQdYp1S-g6u9o:21 a=Yq5XynenixoA:10 a=_EeEMxcBAAAA:8 a=Ibt3ppcNAAAA:8 a=sbLpTZw7AAAA:8 a=D66WH2mTAAAA:8 a=y0lDNZn9LlrShRMpVtoA:9 a=QEXdDO2ut3YA:10 a=6wkfAn-wAAAA:8 a=-QIlfaA_oBF5cLwBDBcA:9 a=GroacoW4toCrrBjv:21 a=_W_S_7VecoQA:10 a=lqcHg5cX4UMA:10 a=czjwGCTIUPoA:10 a=Q0IbkOerfeox0vwtnL8i:22 a=nDn2D_zTSswXio_EN_Ab:22 a=UpxTbEkExsIXOnEBuLq1:22 a=-7bljz5W-5f3WVsCJlEy:22 a=M6UB41pGo0pMB6ru2Xxn:22 a=vBsTMzLcvSY28HeTftE9:22 a=Gp0gBWe1W012YFaH3GnG:22 a=Ewj7jnSR5fdhqaAR_l55:22 a=FoV3fKVWOD-odxzKIFIR:22 a=h7hKd91NC7O_YgkBqVy_:22
+X-Cm-Envelope: MS4xfOa1q8eDjKXNAUqSyP5ff4caQV9v5sfbGtt8w9q6WLzcsqTXkNaWWWMwAJMeqjPXAOX5pBFb5LovFlc6OFhp3HuMsPw0d/gQBwut7i4XL1/XlYw2/6/+ 6GxvGQDqe9CRwJu8UTc72IW9v9HnL53664zYepQS3SnW0ZbvDDgtGLn5eP7OPqYkbW3v+wKyoFI22g==
+
+
+--Apple-Mail=_F527EEE5-81BF-44CD-9A59-4BFC4471F919
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain;
+	charset=utf-8
+
+>> Begin forwarded message:
+>>=20
+>> From: Proping <proping@proping.com.au>
+>> Subject: Ping!! Ella, You Have 12 Changes in Your Market!
+>> Date: 12 March 2026 at 5:34:55=E2=80=AFAM AEDT
+>> To: Ella <ellaconroy@theagency.com.au>
+>>=20
+>> You don't often get email from proping@proping.com.au =
+<mailto:proping@proping.com.au>. Learn why this is important =
+<https://aka.ms/LearnAboutSenderIdentification>=09
+>>  =
+<http://url8771.proping.com.au/ls/click?upn=3Du001.tjt9S62NpaFC5Xsvh1WPD08=
+BjuHS3VrMrUQ0zLUMV3Y-3D5j0g_4OmvopZT8m1QHj0snBFJ0-2FKGsORUExuLzFhulZQsWDim=
+-2BiyeQS48GVAWLITeIoBRXn509YDOmjkuD1cuIwN-2B8-2BzXXQABqSfYu-2FV1RytvJAhTEG=
+JS90m-2Bznksif9-2F4he-2B1LJpdmvm4lY6aIIcDo-2BR-2B5AvJmDWASz0IgZWkkKQ1Pz6oJ=
+nZg3d2ei7922gwcvPShk-2FgOVgU5qyd8xOCG4xeADbfaKmeTQogk0tjjj4AglchSTJuGiA1PJ=
+AxVCaTQTjFMUcA5wMKf1YuKjxeOuWRuNRMmkF-2FJYr2siIVqE8MvrQRnRT5VWU7-2BR5C1-2F=
+OnjCfUjVrkOTT9m-2Br4Kpcgp0e8pw-3D-3D>
+>> Morning Ella, today's report for Willoughby, Willoughby East, North =
+Willoughby, Artarmon, Chatswood, Castlecrag, Naremburn, Castle Cove, =
+Middle Cove.
+>> Price Change(5)
+>>  <https://www.domain.com.au/2020644407>	1 Fairyland Avenue, =
+Chatswood
+>> 4 bed10 Days listed
+>> $2,450,000=C2=A0Proping Estimate*=C2=A0=C2=A0$250,000
+>> Andy Yeung / Ray White AY Realty Chatswood =
+<https://www.domain.com.au/2020644407>
+>>  <https://www.domain.com.au/2020556106>	26 Valerie Avenue, =
+Chatswood
+>> 3 bed43 Days listed
+>> $3,000,000=C2=A0Price Guide=C2=A0=C2=A0$-50,000
+>> Patrick Lang / Belle Property North Shore =
+<https://www.domain.com.au/2020556106>
+>>  <https://www.domain.com.au/2020596371>	2A Tryon Lane, Chatswood
+>> 4 bed28 Days listed
+>> $3,900,000=C2=A0Proping Estimate*=C2=A0=C2=A0$50,000
+>> Andy Yeung / Ray White AY Realty Chatswood =
+<https://www.domain.com.au/2020596371>
+>>  <https://www.domain.com.au/2020617036>	13/3 Talus Street, =
+Naremburn
+>> 3 bed21 Days listed
+>> $1,875,000=C2=A0Price Guide=C2=A0=C2=A0$75,000
+>> Peter Chauncy / McGrath Crows Nest =
+<https://www.domain.com.au/2020617036>
+>>  <https://www.domain.com.au/2020638526>	3/2A Palmer Street, =
+Naremburn
+>> 3 bed13 Days listed
+>> $2,000,000=C2=A0Proping Estimate*=C2=A0=C2=A0$200,000
+>> Rob Woodley / Belle Property North Shore =
+<https://www.domain.com.au/2020638526>
+>> Newly Listed(2)
+>>  <https://www.domain.com.au/2020670039>	903/10 Brown Street, =
+Chatswood
+>> 1 bed0 Days listed
+>> $300,000=C2=A0Proping Estimate*
+>> Simon Boroudjani / First National Regency Realty =
+<https://www.domain.com.au/2020670039>
+>>  <https://www.domain.com.au/2020671443>	24/755-759 Pacific =
+Highway, Chatswood
+>> 2 bed0 Days listed
+>> $950,000=C2=A0Price Guide
+>> Wendy Xu / Sydney Sotheby's International Realty =
+<https://www.domain.com.au/2020671443>
+>> Sold(4)
+>>  <https://www.domain.com.au/2020593675>	116/2 Artarmon Road, =
+Willoughby
+>> 2 bed29 Days listed
+>> $1,000,000=C2=A0Proping Estimate*
+>> Price Withheld=C2=A0Sold Price
+>> Nathaniel Smith / DiJones - Willoughby =
+<https://www.domain.com.au/2020593675>
+>>  <https://www.domain.com.au/2020650126>	52/7-13 Ellis Street, =
+Chatswood
+>> 2 bed8 Days listed
+>> $950,000=C2=A0Proping Estimate*
+>> $1,020,000=C2=A0Sold Price
+>> Claire Yan Liu / Century 21 North Group =
+<https://www.domain.com.au/2020650126>
+>>  <https://www.domain.com.au/2020636892>	33 Robinson Street, =
+Chatswood
+>> 3 bed13 Days listed
+>> $2,900,000=C2=A0Proping Estimate*
+>> Price Withheld=C2=A0Sold Price
+>> Jimmy Psaltis / Stone Real Estate Roseville Willoughby =
+<https://www.domain.com.au/2020636892>
+>>  <https://www.domain.com.au/2020576646>	93 Artarmon Road, =
+Artarmon
+>> 4 bed35 Days listed
+>> $2,850,000=C2=A0Price Guide
+>> Price Withheld=C2=A0Sold Price
+>> Hugh Macfarlan / Stone Real Estate Roseville Willoughby =
+<https://www.domain.com.au/2020576646>
+>> Unlisted(1)
+>>  <https://www.domain.com.au/2020525210>	4 Matheson Avenue, =
+Chatswood
+>> 5 bed57 Days listed
+>> $4,100,000=C2=A0Proping Estimate*
+>> Isabella (Ni Yang Fang) Yan / Shead Property =
+<https://www.domain.com.au/2020525210>
+>> That's all for today! Want to refine your preferences?=20
+>> Manage pings=C2=A0 =
+<http://url8771.proping.com.au/ls/click?upn=3Du001.tjt9S62NpaFC5Xsvh1WPD-2=
+B0SOWYo4YGGDRg3gSmf8esFJWYileVoaTx9m-2FQxL-2FMDx5CU_4OmvopZT8m1QHj0snBFJ0-=
+2FKGsORUExuLzFhulZQsWDim-2BiyeQS48GVAWLITeIoBRXn509YDOmjkuD1cuIwN-2B8-2BzX=
+XQABqSfYu-2FV1RytvJAhTEGJS90m-2Bznksif9-2F4he-2B1LJpdmvm4lY6aIIcDo-2BR-2B5=
+AvJmDWASz0IgZWkkKQ1Pz6oJnZg3d2ei7922gwcvPShk-2FgOVgU5qyd8xOCG4xeANkkkiWYGC=
+fkHnUVFyBhDJ-2FynVarcOssSPBKreUrtm3mucaznXUKeVYNz37WDZpfyR6v32B6-2FOtnqLhf=
+G5CXKTAqRodQ-2BnGpBS0IObq8Qpefyktuexcx-2BCG64jKYpupQ9g-3D-3D>
+>> if you have not set up your own ping yet,click here to signup =
+<http://url8771.proping.com.au/ls/click?upn=3Du001.S4M6ZzZAtRCX50F9fpski0s=
+KSYD3XJ1bLoMf1v3DlH3E2Tq7Nq7UZho-2BxCuWikJYRf_q_4OmvopZT8m1QHj0snBFJ0-2FKG=
+sORUExuLzFhulZQsWDim-2BiyeQS48GVAWLITeIoBRXn509YDOmjkuD1cuIwN-2B8-2BzXXQAB=
+qSfYu-2FV1RytvJAhTEGJS90m-2Bznksif9-2F4he-2B1LJpdmvm4lY6aIIcDo-2BR-2B5AvJm=
+DWASz0IgZWkkKQ1Pz6oJnZg3d2ei7922gwcvPShk-2FgOVgU5qyd8xOCG4xeAP-2BnDgFUTgdJ=
+Rnw-2BA2m5Q4QPH-2Bn9DoLt30v0G6hbLViO4FHQLq419Oe3lv3ndtnQuR5XoFdan821UwRfQU=
+91b0mFt2Yvn1KRJUuhKg3lhEBf5tGjmeApQVFKJ9ySP4kB3w-3D-3D>
+>>=20
+>>  =
+<http://url8771.proping.com.au/ls/click?upn=3Du001.tjt9S62NpaFC5Xsvh1WPD08=
+BjuHS3VrMrUQ0zLUMV3Y-3DFBGd_4OmvopZT8m1QHj0snBFJ0-2FKGsORUExuLzFhulZQsWDim=
+-2BiyeQS48GVAWLITeIoBRXn509YDOmjkuD1cuIwN-2B8-2BzXXQABqSfYu-2FV1RytvJAhTEG=
+JS90m-2Bznksif9-2F4he-2B1LJpdmvm4lY6aIIcDo-2BR-2B5AvJmDWASz0IgZWkkKQ1Pz6oJ=
+nZg3d2ei7922gwcvPShk-2FgOVgU5qyd8xOCG4xeAKHJ3RrNHDvkqIO5fM06s7aoNY4mucOCCi=
+YcJGYIGkPT3s212qil6qaHbQo2mIkmP9QQ9L0S5dOcaeEOTTOQ3PqrR3p8N2cFwVC4uwEK8Jx-=
+2FWkmI9oyJYbI3KvyTBV1UJw-3D-3D>
+>> Disclaimer:=20
+>> *The Proping Estimate is generated by automated algorithms and is =
+intended solely for informational and insight purposes. It is not a =
+valuation or Price Guide, is prone to errors, and should not be relied =
+upon for accuracy or financial decisions. While Proping makes every =
+effort to ensure data integrity, information is provided on an "as-is" =
+basis and no representations or warranties are made as to its accuracy, =
+completeness, or reliability. This content does not constitute =
+financial, legal, or real estate advice. Proping, to the extent =
+permitted by law, accepts no liability for any errors, omissions, or =
+loss arising from reliance placed on this data.
+>> The content of this email and any attachments is confidential and =
+intended only for the recipient. If you are not the intended recipient, =
+any use, distribution, or copying of this message is strictly =
+prohibited. Please read our terms of service =
+<http://url8771.proping.com.au/ls/click?upn=3Du001.tjt9S62NpaFC5Xsvh1WPD9L=
+8upP-2FwQCIYWaC2YyNL9TcN1HrswTb-2BmbHKhAUTB7fBbDZ_4OmvopZT8m1QHj0snBFJ0-2F=
+KGsORUExuLzFhulZQsWDim-2BiyeQS48GVAWLITeIoBRXn509YDOmjkuD1cuIwN-2B8-2BzXXQ=
+ABqSfYu-2FV1RytvJAhTEGJS90m-2Bznksif9-2F4he-2B1LJpdmvm4lY6aIIcDo-2BR-2B5Av=
+JmDWASz0IgZWkkKQ1Pz6oJnZg3d2ei7922gwcvPShk-2FgOVgU5qyd8xOCG4xeANwDgFS8QSmi=
+9EKA4rE1X-2FndXdyim474SKDypBQocDcddq4Oo7QqwjukxoW9jbs5L-2FwGz7o1p9qySeE85U=
+Lk8sy8dkbrFIyAWX1gkG-2BK693KRy-2BIC13EgSlQPCFOToyULA-3D-3D>for more =
+details.=20
+>> If you would like to stop receiving these emails=C2=A0CLICK HERE =
+<http://url8771.proping.com.au/ls/click?upn=3Du001.tjt9S62NpaFC5Xsvh1WPD0m=
+AbvMGFHxDRutqLn0sn3m6p2I5zeFv801Jkm4aOlzB4DINxweOo5bICfy9J1u7YLdy6VMGfpZUQ=
+tTvTunCjD4-3DsWfH_4OmvopZT8m1QHj0snBFJ0-2FKGsORUExuLzFhulZQsWDim-2BiyeQS48=
+GVAWLITeIoBRXn509YDOmjkuD1cuIwN-2B8-2BzXXQABqSfYu-2FV1RytvJAhTEGJS90m-2Bzn=
+ksif9-2F4he-2B1LJpdmvm4lY6aIIcDo-2BR-2B5AvJmDWASz0IgZWkkKQ1Pz6oJnZg3d2ei79=
+22gwcvPShk-2FgOVgU5qyd8xOCG4xeAHjBVY14NFn0CYX9usi4Ul63asojMSyIxqjznCk5sHMz=
+01-2B4ek1qhnkU5DzFy-2BAWHI4D3JjNC3GECSTSkXnV6nVx-2BHXZrlhelLGPT3H2DPHCYArK=
+FvOXrtenPJQK1QitWw-3D-3D>
+
+
+--Apple-Mail=_F527EEE5-81BF-44CD-9A59-4BFC4471F919
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html;
+	charset=utf-8
+
+<html aria-label=3D"message body"><head><meta http-equiv=3D"content-type" =
+content=3D"text/html; charset=3Dutf-8"></head><body =
+style=3D"overflow-wrap: break-word; -webkit-nbsp-mode: space; =
+line-break: after-white-space;"><div><blockquote type=3D"cite"><div><div =
+style=3D"overflow-wrap: break-word; -webkit-nbsp-mode: space; =
+line-break: after-white-space;"><div><blockquote type=3D"cite">
+<div>Begin forwarded message:</div>
+<br class=3D"Apple-interchange-newline">
+<div style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; =
+margin-left: 0px;">
+<span style=3D"font-family: -webkit-system-font, &quot;Helvetica =
+Neue&quot;, Helvetica, sans-serif;"><b>From:
+</b></span><span style=3D"font-family: -webkit-system-font, Helvetica =
+Neue, Helvetica, sans-serif;">Proping &lt;proping@proping.com.au&gt;<br>
+</span></div>
+<div style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; =
+margin-left: 0px;">
+<span style=3D"font-family: -webkit-system-font, &quot;Helvetica =
+Neue&quot;, Helvetica, sans-serif;"><b>Subject:
+</b></span><span style=3D"font-family: -webkit-system-font, Helvetica =
+Neue, Helvetica, sans-serif;"><b>Ping!! Ella, You Have 12 Changes in =
+Your Market!</b><br>
+</span></div>
+<div style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; =
+margin-left: 0px;">
+<span style=3D"font-family: -webkit-system-font, &quot;Helvetica =
+Neue&quot;, Helvetica, sans-serif;"><b>Date:
+</b></span><span style=3D"font-family: -webkit-system-font, Helvetica =
+Neue, Helvetica, sans-serif;">12 March 2026 at 5:34:55=E2=80=AFAM =
+AEDT<br>
+</span></div>
+<div style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; =
+margin-left: 0px;">
+<span style=3D"font-family: -webkit-system-font, &quot;Helvetica =
+Neue&quot;, Helvetica, sans-serif;"><b>To:
+</b></span><span style=3D"font-family: -webkit-system-font, Helvetica =
+Neue, Helvetica, sans-serif;">Ella =
+&lt;ellaconroy@theagency.com.au&gt;<br>
+</span></div>
+<br>
+<div>
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%" =
+align=3D"left" style=3D"padding: revert !important; margin: revert =
+!important; font-size: revert !important; font-family: Helvetica, Arial, =
+sans-serif; text-align: revert !important; caret-color: rgb(10, 10, 10); =
+color: revert !important; font-style: normal; font-variant-caps: normal; =
+font-weight: 400; letter-spacing: revert !important; orphans: auto; =
+text-transform: revert !important; text-wrap: revert !important; =
+white-space: revert !important; widows: auto; word-spacing: revert =
+!important; -webkit-text-stroke-width: 0px; text-decoration: none; =
+aspect-ratio: revert !important; background: revert !important; =
+block-size: revert !important; bottom: revert !important; color-scheme: =
+revert !important; cursor: revert !important; direction: revert =
+!important; height: revert !important; hyphens: revert !important; =
+line-height: revert !important; opacity: revert !important; order: =
+revert !important; outline: revert !important; overflow: revert =
+!important; position: revert !important; resize: revert !important; =
+rotate: revert !important; scale: revert !important; tab-size: revert =
+!important; text-indent: revert !important; text-orientation: revert =
+!important; text-overflow: revert !important; text-shadow: revert =
+!important; top: revert !important; transition: revert !important; =
+vertical-align: revert !important; visibility: revert !important; =
+word-break: revert !important; writing-mode: revert !important; zoom: =
+revert !important; border: 0px !important; display: table !important; =
+width: 945px; table-layout: fixed !important; float: none !important; =
+border-spacing: 0px !important;">
+<tbody style=3D"aspect-ratio: revert !important; background: revert =
+!important; block-size: revert !important; border: revert !important; =
+bottom: revert !important; color: revert !important; color-scheme: =
+revert !important; cursor: revert !important; direction: revert =
+!important; font-size: revert !important; height: revert !important; =
+hyphens: revert !important; letter-spacing: revert !important; =
+line-height: revert !important; margin: revert !important; opacity: =
+revert !important; order: revert !important; outline: revert !important; =
+overflow: revert !important; padding: revert !important; position: =
+revert !important; resize: revert !important; rotate: revert !important; =
+scale: revert !important; tab-size: revert !important; table-layout: =
+revert !important; text-align: revert !important; text-indent: revert =
+!important; text-orientation: revert !important; text-overflow: revert =
+!important; text-shadow: revert !important; text-transform: revert =
+!important; text-wrap: revert !important; top: revert !important; =
+transition: revert !important; vertical-align: revert !important; =
+visibility: revert !important; white-space: revert !important; width: =
+revert !important; word-break: revert !important; word-spacing: revert =
+!important; writing-mode: revert !important; zoom: revert !important; =
+display: block !important;">
+<tr style=3D"padding: revert !important; margin: revert !important; =
+aspect-ratio: revert !important; background: revert !important; =
+block-size: revert !important; border: revert !important; bottom: revert =
+!important; color: revert !important; color-scheme: revert !important; =
+cursor: revert !important; direction: revert !important; display: revert =
+!important; font-size: revert !important; height: revert !important; =
+hyphens: revert !important; letter-spacing: revert !important; =
+line-height: revert !important; opacity: revert !important; order: =
+revert !important; outline: revert !important; overflow: revert =
+!important; position: revert !important; resize: revert !important; =
+rotate: revert !important; scale: revert !important; tab-size: revert =
+!important; table-layout: revert !important; text-align: revert =
+!important; text-indent: revert !important; text-orientation: revert =
+!important; text-overflow: revert !important; text-shadow: revert =
+!important; text-transform: revert !important; text-wrap: revert =
+!important; top: revert !important; transition: revert !important; =
+vertical-align: revert !important; visibility: revert !important; =
+white-space: revert !important; width: revert !important; word-break: =
+revert !important; word-spacing: revert !important; writing-mode: revert =
+!important; zoom: revert !important;">
+<td valign=3D"middle" width=3D"1px" bgcolor=3D"#A6A6A6" cellpadding=3D"7px=
+ 2px 7px 2px" style=3D"padding: 7px 2px !important; margin: revert =
+!important; aspect-ratio: revert !important; background-image: revert =
+!important; background-position: revert !important; background-size: =
+revert !important; background-repeat: revert !important; =
+background-attachment: revert !important; background-origin: revert =
+!important; background-clip: revert !important; block-size: revert =
+!important; border: revert !important; bottom: revert !important; color: =
+revert !important; color-scheme: revert !important; cursor: revert =
+!important; direction: revert !important; display: revert !important; =
+font-size: revert !important; height: revert !important; hyphens: revert =
+!important; letter-spacing: revert !important; line-height: revert =
+!important; opacity: revert !important; order: revert !important; =
+outline: revert !important; overflow: revert !important; position: =
+revert !important; resize: revert !important; rotate: revert !important; =
+scale: revert !important; tab-size: revert !important; table-layout: =
+revert !important; text-align: revert !important; text-indent: revert =
+!important; text-orientation: revert !important; text-overflow: revert =
+!important; text-shadow: revert !important; text-transform: revert =
+!important; text-wrap: revert !important; top: revert !important; =
+transition: revert !important; vertical-align: revert !important; =
+visibility: revert !important; white-space: revert !important; =
+word-break: revert !important; word-spacing: revert !important; =
+writing-mode: revert !important; zoom: revert !important; =
+background-color: rgb(166, 166, 166) !important; width: 0px =
+!important;">
+</td>
+<td valign=3D"middle" width=3D"100%" bgcolor=3D"#EAEAEA" =
+cellpadding=3D"7px 5px 7px 15px" style=3D"padding: 7px 5px 7px 15px =
+!important; margin: revert !important; aspect-ratio: revert !important; =
+background-image: revert !important; background-position: revert =
+!important; background-size: revert !important; background-repeat: =
+revert !important; background-attachment: revert !important; =
+background-origin: revert !important; background-clip: revert =
+!important; block-size: revert !important; border: revert !important; =
+bottom: revert !important; color-scheme: revert !important; cursor: =
+revert !important; direction: revert !important; display: revert =
+!important; height: revert !important; hyphens: revert !important; =
+letter-spacing: revert !important; line-height: revert !important; =
+opacity: revert !important; order: revert !important; outline: revert =
+!important; overflow: revert !important; position: revert !important; =
+resize: revert !important; rotate: revert !important; scale: revert =
+!important; tab-size: revert !important; table-layout: revert =
+!important; text-indent: revert !important; text-orientation: revert =
+!important; text-overflow: revert !important; text-shadow: revert =
+!important; text-transform: revert !important; text-wrap: revert =
+!important; top: revert !important; transition: revert !important; =
+vertical-align: revert !important; visibility: revert !important; =
+white-space: revert !important; word-break: revert !important; =
+word-spacing: revert !important; writing-mode: revert !important; zoom: =
+revert !important; width: 911px; background-color: rgb(234, 234, 234) =
+!important; font-family: wf_segoe-ui_normal, &quot;Segoe UI&quot;, =
+&quot;Segoe WP&quot;, Tahoma, Arial, sans-serif !important; font-size: =
+12px !important; font-weight: normal !important; color: rgb(33, 33, 33) =
+!important; text-align: left !important; overflow-wrap: break-word =
+!important;">
+<div style=3D"aspect-ratio: revert !important; background: revert =
+!important; block-size: revert !important; border: revert !important; =
+bottom: revert !important; color: revert !important; color-scheme: =
+revert !important; cursor: revert !important; direction: revert =
+!important; display: revert !important; font-size: revert !important; =
+height: revert !important; hyphens: revert !important; letter-spacing: =
+revert !important; line-height: revert !important; margin: revert =
+!important; opacity: revert !important; order: revert !important; =
+outline: revert !important; overflow: revert !important; padding: revert =
+!important; position: revert !important; resize: revert !important; =
+rotate: revert !important; scale: revert !important; tab-size: revert =
+!important; table-layout: revert !important; text-align: revert =
+!important; text-indent: revert !important; text-orientation: revert =
+!important; text-overflow: revert !important; text-shadow: revert =
+!important; text-transform: revert !important; text-wrap: revert =
+!important; top: revert !important; transition: revert !important; =
+vertical-align: revert !important; visibility: revert !important; =
+white-space: revert !important; width: revert !important; word-break: =
+revert !important; word-spacing: revert !important; writing-mode: revert =
+!important; zoom: revert !important;">
+You don't often get email from<span =
+class=3D"Apple-converted-space">&nbsp;</span><a =
+href=3D"mailto:proping@proping.com.au">proping@proping.com.au</a>.<span =
+class=3D"Apple-converted-space">&nbsp;</span><a =
+href=3D"https://aka.ms/LearnAboutSenderIdentification" =
+style=3D"background: revert !important; color: revert !important; =
+direction: revert !important; display: revert !important; font-size: =
+revert !important; opacity: revert !important; rotate: revert =
+!important; scale: revert !important; visibility: revert =
+!important;">Learn
+ why this is important</a></div>
+</td>
+<td valign=3D"middle" align=3D"left" width=3D"75px" bgcolor=3D"#EAEAEA" =
+cellpadding=3D"7px 5px 7px 5px" style=3D"padding: 7px 5px !important; =
+margin: revert !important; aspect-ratio: revert !important; =
+background-image: revert !important; background-position: revert =
+!important; background-size: revert !important; background-repeat: =
+revert !important; background-attachment: revert !important; =
+background-origin: revert !important; background-clip: revert =
+!important; block-size: revert !important; border: revert !important; =
+bottom: revert !important; color-scheme: revert !important; cursor: =
+revert !important; direction: revert !important; display: revert =
+!important; height: revert !important; hyphens: revert !important; =
+letter-spacing: revert !important; line-height: revert !important; =
+opacity: revert !important; order: revert !important; outline: revert =
+!important; overflow: revert !important; position: revert !important; =
+resize: revert !important; rotate: revert !important; scale: revert =
+!important; tab-size: revert !important; table-layout: revert =
+!important; text-indent: revert !important; text-orientation: revert =
+!important; text-overflow: revert !important; text-shadow: revert =
+!important; text-transform: revert !important; text-wrap: revert =
+!important; top: revert !important; transition: revert !important; =
+vertical-align: revert !important; visibility: revert !important; =
+white-space: revert !important; word-break: revert !important; =
+word-spacing: revert !important; writing-mode: revert !important; zoom: =
+revert !important; width: 75px !important; background-color: rgb(234, =
+234, 234) !important; font-family: wf_segoe-ui_normal, &quot;Segoe =
+UI&quot;, &quot;Segoe WP&quot;, Tahoma, Arial, sans-serif !important; =
+font-size: 12px !important; font-weight: normal !important; color: =
+rgb(33, 33, 33) !important; text-align: left !important; overflow-wrap: =
+break-word !important;">
+</td>
+</tr>
+</tbody>
+</table>
+<div style=3D"caret-color: rgb(10, 10, 10); color: rgb(10, 10, 10); =
+font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-style: =
+normal; font-variant-caps: normal; font-weight: 400; letter-spacing: =
+normal; orphans: auto; text-align: left; text-indent: 0px; =
+text-transform: none; white-space: normal; widows: auto; word-spacing: =
+0px; -webkit-text-stroke-width: 0px; text-decoration: none;">
+<table class=3D"body" style=3D"padding: 0px; margin: 0px; font-size: =
+16px; font-family: Helvetica, Arial, sans-serif; text-align: left; =
+vertical-align: top; width: 945px;">
+<tbody>
+<tr style=3D"padding: 0px; margin: 0px;">
+<td align=3D"center" valign=3D"top" style=3D"padding: 0px; margin: =
+0px;">
+<table class=3D"container" style=3D"padding: 0px; margin: 0px; =
+font-size: 16px; font-family: Helvetica, Arial, sans-serif; text-align: =
+left;">
+<tbody>
+<tr style=3D"padding: 0px; margin: 0px;">
+<td style=3D"padding: 0px; margin: 0px;"><a =
+href=3D"http://url8771.proping.com.au/ls/click?upn=3Du001.tjt9S62NpaFC5Xsv=
+h1WPD08BjuHS3VrMrUQ0zLUMV3Y-3D5j0g_4OmvopZT8m1QHj0snBFJ0-2FKGsORUExuLzFhul=
+ZQsWDim-2BiyeQS48GVAWLITeIoBRXn509YDOmjkuD1cuIwN-2B8-2BzXXQABqSfYu-2FV1Ryt=
+vJAhTEGJS90m-2Bznksif9-2F4he-2B1LJpdmvm4lY6aIIcDo-2BR-2B5AvJmDWASz0IgZWkkK=
+Q1Pz6oJnZg3d2ei7922gwcvPShk-2FgOVgU5qyd8xOCG4xeADbfaKmeTQogk0tjjj4AglchSTJ=
+uGiA1PJAxVCaTQTjFMUcA5wMKf1YuKjxeOuWRuNRMmkF-2FJYr2siIVqE8MvrQRnRT5VWU7-2B=
+R5C1-2FOnjCfUjVrkOTT9m-2Br4Kpcgp0e8pw-3D-3D"><img class=3D"logo =
+text-center" =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/4=
+779b523-806d-4ea5-9068-cfa1f7c6ac21/200x200.png" height=3D"32" =
+style=3D"width: 32px; height: 32px; display: block; margin: 0px auto; =
+clear: both; float: none; max-width: 100%; outline: 0px; padding: 12px =
+0px; text-align: center; text-decoration: none;"></a>
+<table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" =
+align=3D"center" style=3D"padding: 0px; margin: 0px; font-size: 16px; =
+font-family: Helvetica, Arial, sans-serif; text-align: left;">
+<tbody>
+<tr style=3D"padding: 0px; margin: 0px;">
+<td class=3D"mutedText" style=3D"padding: 0px; margin: 0px; font-weight: =
+400; color: rgb(108, 117, 125); font-size: 14px; font-family: Helvetica, =
+Arial, sans-serif; text-align: center; width: 320px;">
+Morning Ella, today's report for Willoughby, Willoughby East, North =
+Willoughby, Artarmon, Chatswood, Castlecrag, Naremburn, Castle Cove, =
+Middle Cove.</td>
+</tr>
+</tbody>
+</table>
+<table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" style=3D"padding: =
+0px; margin: 24px 0px 0px; font-size: 16px; font-family: Helvetica, =
+Arial, sans-serif; text-align: left;">
+<tbody>
+<tr style=3D"padding: 0px; margin: 0px;">
+<td class=3D"titleText" style=3D"padding: 0px; margin: 0px; font-weight: =
+700; color: rgb(52, 58, 64); font-size: 16px; line-height: 1.3;">
+<div style=3D"margin-top: 42px; color: rgb(52, 58, 64);">Price Change(5)
+<table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" style=3D"padding: =
+12px 0px 0px; margin: 0px; font-size: 16px; font-family: Helvetica, =
+Arial, sans-serif; text-align: left;">
+<tbody>
+<tr style=3D"padding: 0px; margin: 0px; text-align: left; =
+vertical-align: top;">
+<td width=3D"96" height=3D"96" style=3D"padding: 0px; margin: 0px; =
+width: 96px; height: 96px;">
+<a href=3D"https://www.domain.com.au/2020644407" clicktracking=3D"off" =
+style=3D"text-decoration: none; color: rgb(10, 10, 10); padding: =
+0px;"><img =
+src=3D"https://bucket-api.domain.com.au/v1/bucket/image/3ikbe8p0bp171_1_0_=
+260226_111405-w2803-h1869" class=3D"propertyImage" width=3D"96" =
+height=3D"96" style=3D"width: 96px; height: 96px; display: block; =
+margin: auto; border-radius: 4px; object-fit: cover; padding: =
+0px;"></a></td>
+<td class=3D"regularText" style=3D"padding: 0px 8px; margin: 0px; =
+font-weight: 700; color: rgb(52, 58, 64); font-size: 14px; font-family: =
+Helvetica, Arial, sans-serif;">
+<a href=3D"https://www.domain.com.au/2020644407" clicktracking=3D"off" =
+style=3D"text-decoration: none; color: rgb(10, 10, 10); padding: 0px;">1 =
+Fairyland Avenue, Chatswood<br>
+<span class=3D"mutedText" style=3D"font-weight: 400; color: rgb(108, =
+117, 125); font-size: 14px; margin: 0px;">4 bed</span><span =
+class=3D"mutedText" style=3D"font-weight: 400; color: rgb(108, 117, =
+125); font-size: 14px; padding-left: 8px; margin: 0px;">10 Days =
+listed</span><br>
+<span style=3D"padding-top: 8px; display: inline-block; color: rgb(52, =
+58, 64);">$2,450,000<span =
+class=3D"Apple-converted-space">&nbsp;</span><span class=3D"smallText" =
+style=3D"font-weight: 400; color: rgb(108, 117, 125); font-size: 12px; =
+margin: 0px;">Proping Estimate*</span><span =
+class=3D"Apple-converted-space">&nbsp;</span><img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/b=
+a2dd718-e3c0-4f99-9ed8-bd416565f234/160x160.png" width=3D"12" =
+style=3D"width: 12px;"><span =
+class=3D"Apple-converted-space">&nbsp;</span><span style=3D"color: =
+rgb(40, 167, 69); font-weight: 400; font-size: =
+12px;">$250,000</span></span><br>
+<span class=3D"mutedText" style=3D"font-weight: 400; color: rgb(108, =
+117, 125); font-size: 14px; margin: 0px;">Andy Yeung / Ray White AY =
+Realty Chatswood</span></a></td>
+</tr>
+</tbody>
+</table>
+<table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" style=3D"padding: =
+12px 0px 0px; margin: 0px; font-size: 16px; font-family: Helvetica, =
+Arial, sans-serif; text-align: left;">
+<tbody>
+<tr style=3D"padding: 0px; margin: 0px; text-align: left; =
+vertical-align: top;">
+<td width=3D"96" height=3D"96" style=3D"padding: 0px; margin: 0px; =
+width: 96px; height: 96px;">
+<a href=3D"https://www.domain.com.au/2020556106" clicktracking=3D"off" =
+style=3D"text-decoration: none; color: rgb(10, 10, 10); padding: =
+0px;"><img =
+src=3D"https://bucket-api.domain.com.au/v1/bucket/image/2020556106_13_1_26=
+0127_070725-w3675-h2756" class=3D"propertyImage" width=3D"96" =
+height=3D"96" style=3D"width: 96px; height: 96px; display: block; =
+margin: auto; border-radius: 4px; object-fit: cover; padding: =
+0px;"></a></td>
+<td class=3D"regularText" style=3D"padding: 0px 8px; margin: 0px; =
+font-weight: 700; color: rgb(52, 58, 64); font-size: 14px; font-family: =
+Helvetica, Arial, sans-serif;">
+<a href=3D"https://www.domain.com.au/2020556106" clicktracking=3D"off" =
+style=3D"text-decoration: none; color: rgb(10, 10, 10); padding: =
+0px;">26 Valerie Avenue, Chatswood<br>
+<span class=3D"mutedText" style=3D"font-weight: 400; color: rgb(108, =
+117, 125); font-size: 14px; margin: 0px;">3 bed</span><span =
+class=3D"mutedText" style=3D"font-weight: 400; color: rgb(108, 117, =
+125); font-size: 14px; padding-left: 8px; margin: 0px;">43 Days =
+listed</span><br>
+<span style=3D"padding-top: 8px; display: inline-block; color: rgb(52, =
+58, 64);">$3,000,000<span =
+class=3D"Apple-converted-space">&nbsp;</span><span class=3D"smallText" =
+style=3D"font-weight: 400; color: rgb(108, 117, 125); font-size: 12px; =
+margin: 0px;">Price Guide</span><span =
+class=3D"Apple-converted-space">&nbsp;</span><img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/3=
+54cde02-7c14-4cf5-98eb-0f0774223330/160x160.png" width=3D"12" =
+style=3D"width: 12px;"><span =
+class=3D"Apple-converted-space">&nbsp;</span><span style=3D"color: =
+rgb(220, 53, 69); font-weight: 400; font-size: =
+12px;">$-50,000</span></span><br>
+<span class=3D"mutedText" style=3D"font-weight: 400; color: rgb(108, =
+117, 125); font-size: 14px; margin: 0px;">Patrick Lang / Belle Property =
+North Shore</span></a></td>
+</tr>
+</tbody>
+</table>
+<table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" style=3D"padding: =
+12px 0px 0px; margin: 0px; font-size: 16px; font-family: Helvetica, =
+Arial, sans-serif; text-align: left;">
+<tbody>
+<tr style=3D"padding: 0px; margin: 0px; text-align: left; =
+vertical-align: top;">
+<td width=3D"96" height=3D"96" style=3D"padding: 0px; margin: 0px; =
+width: 96px; height: 96px;">
+<a href=3D"https://www.domain.com.au/2020596371" clicktracking=3D"off" =
+style=3D"text-decoration: none; color: rgb(10, 10, 10); padding: =
+0px;"><img =
+src=3D"https://bucket-api.domain.com.au/v1/bucket/image/2020596371_1_1_260=
+211_031733-w2803-h1869" class=3D"propertyImage" width=3D"96" height=3D"96"=
+ style=3D"width: 96px; height: 96px; display: block; margin: auto; =
+border-radius: 4px; object-fit: cover; padding: 0px;"></a></td>
+<td class=3D"regularText" style=3D"padding: 0px 8px; margin: 0px; =
+font-weight: 700; color: rgb(52, 58, 64); font-size: 14px; font-family: =
+Helvetica, Arial, sans-serif;">
+<a href=3D"https://www.domain.com.au/2020596371" clicktracking=3D"off" =
+style=3D"text-decoration: none; color: rgb(10, 10, 10); padding: =
+0px;">2A Tryon Lane, Chatswood<br>
+<span class=3D"mutedText" style=3D"font-weight: 400; color: rgb(108, =
+117, 125); font-size: 14px; margin: 0px;">4 bed</span><span =
+class=3D"mutedText" style=3D"font-weight: 400; color: rgb(108, 117, =
+125); font-size: 14px; padding-left: 8px; margin: 0px;">28 Days =
+listed</span><br>
+<span style=3D"padding-top: 8px; display: inline-block; color: rgb(52, =
+58, 64);">$3,900,000<span =
+class=3D"Apple-converted-space">&nbsp;</span><span class=3D"smallText" =
+style=3D"font-weight: 400; color: rgb(108, 117, 125); font-size: 12px; =
+margin: 0px;">Proping Estimate*</span><span =
+class=3D"Apple-converted-space">&nbsp;</span><img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/b=
+a2dd718-e3c0-4f99-9ed8-bd416565f234/160x160.png" width=3D"12" =
+style=3D"width: 12px;"><span =
+class=3D"Apple-converted-space">&nbsp;</span><span style=3D"color: =
+rgb(40, 167, 69); font-weight: 400; font-size: =
+12px;">$50,000</span></span><br>
+<span class=3D"mutedText" style=3D"font-weight: 400; color: rgb(108, =
+117, 125); font-size: 14px; margin: 0px;">Andy Yeung / Ray White AY =
+Realty Chatswood</span></a></td>
+</tr>
+</tbody>
+</table>
+<table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" style=3D"padding: =
+12px 0px 0px; margin: 0px; font-size: 16px; font-family: Helvetica, =
+Arial, sans-serif; text-align: left;">
+<tbody>
+<tr style=3D"padding: 0px; margin: 0px; text-align: left; =
+vertical-align: top;">
+<td width=3D"96" height=3D"96" style=3D"padding: 0px; margin: 0px; =
+width: 96px; height: 96px;">
+<a href=3D"https://www.domain.com.au/2020617036" clicktracking=3D"off" =
+style=3D"text-decoration: none; color: rgb(10, 10, 10); padding: =
+0px;"><img =
+src=3D"https://bucket-api.domain.com.au/v1/bucket/image/2020617036_1_1_260=
+218_081241-w4134-h2756" class=3D"propertyImage" width=3D"96" height=3D"96"=
+ style=3D"width: 96px; height: 96px; display: block; margin: auto; =
+border-radius: 4px; object-fit: cover; padding: 0px;"></a></td>
+<td class=3D"regularText" style=3D"padding: 0px 8px; margin: 0px; =
+font-weight: 700; color: rgb(52, 58, 64); font-size: 14px; font-family: =
+Helvetica, Arial, sans-serif;">
+<a href=3D"https://www.domain.com.au/2020617036" clicktracking=3D"off" =
+style=3D"text-decoration: none; color: rgb(10, 10, 10); padding: =
+0px;">13/3 Talus Street, Naremburn<br>
+<span class=3D"mutedText" style=3D"font-weight: 400; color: rgb(108, =
+117, 125); font-size: 14px; margin: 0px;">3 bed</span><span =
+class=3D"mutedText" style=3D"font-weight: 400; color: rgb(108, 117, =
+125); font-size: 14px; padding-left: 8px; margin: 0px;">21 Days =
+listed</span><br>
+<span style=3D"padding-top: 8px; display: inline-block; color: rgb(52, =
+58, 64);">$1,875,000<span =
+class=3D"Apple-converted-space">&nbsp;</span><span class=3D"smallText" =
+style=3D"font-weight: 400; color: rgb(108, 117, 125); font-size: 12px; =
+margin: 0px;">Price Guide</span><span =
+class=3D"Apple-converted-space">&nbsp;</span><img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/b=
+a2dd718-e3c0-4f99-9ed8-bd416565f234/160x160.png" width=3D"12" =
+style=3D"width: 12px;"><span =
+class=3D"Apple-converted-space">&nbsp;</span><span style=3D"color: =
+rgb(40, 167, 69); font-weight: 400; font-size: =
+12px;">$75,000</span></span><br>
+<span class=3D"mutedText" style=3D"font-weight: 400; color: rgb(108, =
+117, 125); font-size: 14px; margin: 0px;">Peter Chauncy / McGrath Crows =
+Nest</span></a></td>
+</tr>
+</tbody>
+</table>
+<table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" style=3D"padding: =
+12px 0px 0px; margin: 0px; font-size: 16px; font-family: Helvetica, =
+Arial, sans-serif; text-align: left;">
+<tbody>
+<tr style=3D"padding: 0px; margin: 0px; text-align: left; =
+vertical-align: top;">
+<td width=3D"96" height=3D"96" style=3D"padding: 0px; margin: 0px; =
+width: 96px; height: 96px;">
+<a href=3D"https://www.domain.com.au/2020638526" clicktracking=3D"off" =
+style=3D"text-decoration: none; color: rgb(10, 10, 10); padding: =
+0px;"><img =
+src=3D"https://bucket-api.domain.com.au/v1/bucket/image/2020638526_3_1_260=
+226_030751-w4134-h2756" class=3D"propertyImage" width=3D"96" height=3D"96"=
+ style=3D"width: 96px; height: 96px; display: block; margin: auto; =
+border-radius: 4px; object-fit: cover; padding: 0px;"></a></td>
+<td class=3D"regularText" style=3D"padding: 0px 8px; margin: 0px; =
+font-weight: 700; color: rgb(52, 58, 64); font-size: 14px; font-family: =
+Helvetica, Arial, sans-serif;">
+<a href=3D"https://www.domain.com.au/2020638526" clicktracking=3D"off" =
+style=3D"text-decoration: none; color: rgb(10, 10, 10); padding: =
+0px;">3/2A Palmer Street, Naremburn<br>
+<span class=3D"mutedText" style=3D"font-weight: 400; color: rgb(108, =
+117, 125); font-size: 14px; margin: 0px;">3 bed</span><span =
+class=3D"mutedText" style=3D"font-weight: 400; color: rgb(108, 117, =
+125); font-size: 14px; padding-left: 8px; margin: 0px;">13 Days =
+listed</span><br>
+<span style=3D"padding-top: 8px; display: inline-block; color: rgb(52, =
+58, 64);">$2,000,000<span =
+class=3D"Apple-converted-space">&nbsp;</span><span class=3D"smallText" =
+style=3D"font-weight: 400; color: rgb(108, 117, 125); font-size: 12px; =
+margin: 0px;">Proping Estimate*</span><span =
+class=3D"Apple-converted-space">&nbsp;</span><img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/b=
+a2dd718-e3c0-4f99-9ed8-bd416565f234/160x160.png" width=3D"12" =
+style=3D"width: 12px;"><span =
+class=3D"Apple-converted-space">&nbsp;</span><span style=3D"color: =
+rgb(40, 167, 69); font-weight: 400; font-size: =
+12px;">$200,000</span></span><br>
+<span class=3D"mutedText" style=3D"font-weight: 400; color: rgb(108, =
+117, 125); font-size: 14px; margin: 0px;">Rob Woodley / Belle Property =
+North Shore</span></a></td>
+</tr>
+</tbody>
+</table>
+<div style=3D"margin-top: 42px; color: rgb(52, 58, 64);">Newly Listed(2)
+<table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" style=3D"padding: =
+12px 0px 0px; margin: 0px; font-size: 16px; font-family: Helvetica, =
+Arial, sans-serif; text-align: left;">
+<tbody>
+<tr style=3D"padding: 0px; margin: 0px; text-align: left; =
+vertical-align: top;">
+<td width=3D"96" height=3D"96" style=3D"padding: 0px; margin: 0px; =
+width: 96px; height: 96px;">
+<a href=3D"https://www.domain.com.au/2020670039" clicktracking=3D"off" =
+style=3D"text-decoration: none; color: rgb(10, 10, 10); padding: =
+0px;"><img =
+src=3D"https://bucket-api.domain.com.au/v1/bucket/image/2020670039_1_1_260=
+310_101720-w1800-h1200" class=3D"propertyImage" width=3D"96" height=3D"96"=
+ style=3D"width: 96px; height: 96px; display: block; margin: auto; =
+border-radius: 4px; object-fit: cover; padding: 0px;"></a></td>
+<td class=3D"regularText" style=3D"padding: 0px 8px; margin: 0px; =
+font-weight: 700; color: rgb(52, 58, 64); font-size: 14px; font-family: =
+Helvetica, Arial, sans-serif;">
+<a href=3D"https://www.domain.com.au/2020670039" clicktracking=3D"off" =
+style=3D"text-decoration: none; color: rgb(10, 10, 10); padding: =
+0px;">903/10 Brown Street, Chatswood<br>
+<span class=3D"mutedText" style=3D"font-weight: 400; color: rgb(108, =
+117, 125); font-size: 14px; margin: 0px;">1 bed</span><span =
+class=3D"mutedText" style=3D"font-weight: 400; color: rgb(108, 117, =
+125); font-size: 14px; padding-left: 8px; margin: 0px;">0 Days =
+listed</span><br>
+<span style=3D"padding-top: 8px; display: inline-block; color: rgb(52, =
+58, 64);">$300,000<span class=3D"Apple-converted-space">&nbsp;</span><span=
+ class=3D"smallText" style=3D"font-weight: 400; color: rgb(108, 117, =
+125); font-size: 12px; margin: 0px;">Proping Estimate*</span></span><br>
+<span class=3D"mutedText" style=3D"font-weight: 400; color: rgb(108, =
+117, 125); font-size: 14px; margin: 0px;">Simon Boroudjani / First =
+National Regency Realty</span></a></td>
+</tr>
+</tbody>
+</table>
+<table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" style=3D"padding: =
+12px 0px 0px; margin: 0px; font-size: 16px; font-family: Helvetica, =
+Arial, sans-serif; text-align: left;">
+<tbody>
+<tr style=3D"padding: 0px; margin: 0px; text-align: left; =
+vertical-align: top;">
+<td width=3D"96" height=3D"96" style=3D"padding: 0px; margin: 0px; =
+width: 96px; height: 96px;">
+<a href=3D"https://www.domain.com.au/2020671443" clicktracking=3D"off" =
+style=3D"text-decoration: none; color: rgb(10, 10, 10); padding: =
+0px;"><img =
+src=3D"https://bucket-api.domain.com.au/v1/bucket/image/2020671443_1_1_260=
+311_025743-w1600-h1067" class=3D"propertyImage" width=3D"96" height=3D"96"=
+ style=3D"width: 96px; height: 96px; display: block; margin: auto; =
+border-radius: 4px; object-fit: cover; padding: 0px;"></a></td>
+<td class=3D"regularText" style=3D"padding: 0px 8px; margin: 0px; =
+font-weight: 700; color: rgb(52, 58, 64); font-size: 14px; font-family: =
+Helvetica, Arial, sans-serif;">
+<a href=3D"https://www.domain.com.au/2020671443" clicktracking=3D"off" =
+style=3D"text-decoration: none; color: rgb(10, 10, 10); padding: =
+0px;">24/755-759 Pacific Highway, Chatswood<br>
+<span class=3D"mutedText" style=3D"font-weight: 400; color: rgb(108, =
+117, 125); font-size: 14px; margin: 0px;">2 bed</span><span =
+class=3D"mutedText" style=3D"font-weight: 400; color: rgb(108, 117, =
+125); font-size: 14px; padding-left: 8px; margin: 0px;">0 Days =
+listed</span><br>
+<span style=3D"padding-top: 8px; display: inline-block; color: rgb(52, =
+58, 64);">$950,000<span class=3D"Apple-converted-space">&nbsp;</span><span=
+ class=3D"smallText" style=3D"font-weight: 400; color: rgb(108, 117, =
+125); font-size: 12px; margin: 0px;">Price Guide</span></span><br>
+<span class=3D"mutedText" style=3D"font-weight: 400; color: rgb(108, =
+117, 125); font-size: 14px; margin: 0px;">Wendy Xu / Sydney Sotheby's =
+International Realty</span></a></td>
+</tr>
+</tbody>
+</table>
+<div style=3D"margin-top: 42px; color: rgb(52, 58, 64);">Sold(4)
+<table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" style=3D"padding: =
+12px 0px 0px; margin: 0px; font-size: 16px; font-family: Helvetica, =
+Arial, sans-serif; text-align: left;">
+<tbody>
+<tr style=3D"padding: 0px; margin: 0px; text-align: left; =
+vertical-align: top;">
+<td width=3D"96" height=3D"96" style=3D"padding: 0px; margin: 0px; =
+width: 96px; height: 96px;">
+<a href=3D"https://www.domain.com.au/2020593675" clicktracking=3D"off" =
+style=3D"text-decoration: none; color: rgb(10, 10, 10); padding: =
+0px;"><img =
+src=3D"https://bucket-api.domain.com.au/v1/bucket/image/2020593675_1_1_260=
+210_052434-w4134-h2756" class=3D"propertyImage" width=3D"96" height=3D"96"=
+ style=3D"width: 96px; height: 96px; display: block; margin: auto; =
+border-radius: 4px; object-fit: cover; padding: 0px;"></a></td>
+<td class=3D"regularText" style=3D"padding: 0px 8px; margin: 0px; =
+font-weight: 700; color: rgb(52, 58, 64); font-size: 14px; font-family: =
+Helvetica, Arial, sans-serif;">
+<a href=3D"https://www.domain.com.au/2020593675" clicktracking=3D"off" =
+style=3D"text-decoration: none; color: rgb(10, 10, 10); padding: =
+0px;">116/2 Artarmon Road, Willoughby<br>
+<span class=3D"mutedText" style=3D"font-weight: 400; color: rgb(108, =
+117, 125); font-size: 14px; margin: 0px;">2 bed</span><span =
+class=3D"mutedText" style=3D"font-weight: 400; color: rgb(108, 117, =
+125); font-size: 14px; padding-left: 8px; margin: 0px;">29 Days =
+listed</span><br>
+<span style=3D"padding-top: 8px; display: inline-block; color: rgb(52, =
+58, 64);">$1,000,000<span =
+class=3D"Apple-converted-space">&nbsp;</span><span class=3D"smallText" =
+style=3D"font-weight: 400; color: rgb(108, 117, 125); font-size: 12px; =
+margin: 0px;">Proping Estimate*</span></span><span class=3D"regularText" =
+style=3D"font-weight: 700; color: rgb(52, 58, 64); font-size: 14px; =
+margin: 0px;"><br>
+Price Withheld<span class=3D"Apple-converted-space">&nbsp;</span><span =
+class=3D"smallText" style=3D"font-weight: 400; color: rgb(108, 117, =
+125); font-size: 12px; margin: 0px;">Sold Price</span></span><br>
+<span class=3D"mutedText" style=3D"font-weight: 400; color: rgb(108, =
+117, 125); font-size: 14px; margin: 0px;">Nathaniel Smith / DiJones - =
+Willoughby</span></a></td>
+</tr>
+</tbody>
+</table>
+<table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" style=3D"padding: =
+12px 0px 0px; margin: 0px; font-size: 16px; font-family: Helvetica, =
+Arial, sans-serif; text-align: left;">
+<tbody>
+<tr style=3D"padding: 0px; margin: 0px; text-align: left; =
+vertical-align: top;">
+<td width=3D"96" height=3D"96" style=3D"padding: 0px; margin: 0px; =
+width: 96px; height: 96px;">
+<a href=3D"https://www.domain.com.au/2020650126" clicktracking=3D"off" =
+style=3D"text-decoration: none; color: rgb(10, 10, 10); padding: =
+0px;"><img =
+src=3D"https://bucket-api.domain.com.au/v1/bucket/image/2020650126_1_1_260=
+303_050145-w2048-h1365" class=3D"propertyImage" width=3D"96" height=3D"96"=
+ style=3D"width: 96px; height: 96px; display: block; margin: auto; =
+border-radius: 4px; object-fit: cover; padding: 0px;"></a></td>
+<td class=3D"regularText" style=3D"padding: 0px 8px; margin: 0px; =
+font-weight: 700; color: rgb(52, 58, 64); font-size: 14px; font-family: =
+Helvetica, Arial, sans-serif;">
+<a href=3D"https://www.domain.com.au/2020650126" clicktracking=3D"off" =
+style=3D"text-decoration: none; color: rgb(10, 10, 10); padding: =
+0px;">52/7-13 Ellis Street, Chatswood<br>
+<span class=3D"mutedText" style=3D"font-weight: 400; color: rgb(108, =
+117, 125); font-size: 14px; margin: 0px;">2 bed</span><span =
+class=3D"mutedText" style=3D"font-weight: 400; color: rgb(108, 117, =
+125); font-size: 14px; padding-left: 8px; margin: 0px;">8 Days =
+listed</span><br>
+<span style=3D"padding-top: 8px; display: inline-block; color: rgb(52, =
+58, 64);">$950,000<span class=3D"Apple-converted-space">&nbsp;</span><span=
+ class=3D"smallText" style=3D"font-weight: 400; color: rgb(108, 117, =
+125); font-size: 12px; margin: 0px;">Proping =
+Estimate*</span></span><span class=3D"regularText" style=3D"font-weight: =
+700; color: rgb(52, 58, 64); font-size: 14px; margin: 0px;"><br>
+$1,020,000<span class=3D"Apple-converted-space">&nbsp;</span><span =
+class=3D"smallText" style=3D"font-weight: 400; color: rgb(108, 117, =
+125); font-size: 12px; margin: 0px;">Sold Price</span></span><br>
+<span class=3D"mutedText" style=3D"font-weight: 400; color: rgb(108, =
+117, 125); font-size: 14px; margin: 0px;">Claire Yan Liu / Century 21 =
+North Group</span></a></td>
+</tr>
+</tbody>
+</table>
+<table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" style=3D"padding: =
+12px 0px 0px; margin: 0px; font-size: 16px; font-family: Helvetica, =
+Arial, sans-serif; text-align: left;">
+<tbody>
+<tr style=3D"padding: 0px; margin: 0px; text-align: left; =
+vertical-align: top;">
+<td width=3D"96" height=3D"96" style=3D"padding: 0px; margin: 0px; =
+width: 96px; height: 96px;">
+<a href=3D"https://www.domain.com.au/2020636892" clicktracking=3D"off" =
+style=3D"text-decoration: none; color: rgb(10, 10, 10); padding: =
+0px;"><img =
+src=3D"https://bucket-api.domain.com.au/v1/bucket/image/2020636892_1_1_260=
+226_114148-w2560-h1707" class=3D"propertyImage" width=3D"96" height=3D"96"=
+ style=3D"width: 96px; height: 96px; display: block; margin: auto; =
+border-radius: 4px; object-fit: cover; padding: 0px;"></a></td>
+<td class=3D"regularText" style=3D"padding: 0px 8px; margin: 0px; =
+font-weight: 700; color: rgb(52, 58, 64); font-size: 14px; font-family: =
+Helvetica, Arial, sans-serif;">
+<a href=3D"https://www.domain.com.au/2020636892" clicktracking=3D"off" =
+style=3D"text-decoration: none; color: rgb(10, 10, 10); padding: =
+0px;">33 Robinson Street, Chatswood<br>
+<span class=3D"mutedText" style=3D"font-weight: 400; color: rgb(108, =
+117, 125); font-size: 14px; margin: 0px;">3 bed</span><span =
+class=3D"mutedText" style=3D"font-weight: 400; color: rgb(108, 117, =
+125); font-size: 14px; padding-left: 8px; margin: 0px;">13 Days =
+listed</span><br>
+<span style=3D"padding-top: 8px; display: inline-block; color: rgb(52, =
+58, 64);">$2,900,000<span =
+class=3D"Apple-converted-space">&nbsp;</span><span class=3D"smallText" =
+style=3D"font-weight: 400; color: rgb(108, 117, 125); font-size: 12px; =
+margin: 0px;">Proping Estimate*</span></span><span class=3D"regularText" =
+style=3D"font-weight: 700; color: rgb(52, 58, 64); font-size: 14px; =
+margin: 0px;"><br>
+Price Withheld<span class=3D"Apple-converted-space">&nbsp;</span><span =
+class=3D"smallText" style=3D"font-weight: 400; color: rgb(108, 117, =
+125); font-size: 12px; margin: 0px;">Sold Price</span></span><br>
+<span class=3D"mutedText" style=3D"font-weight: 400; color: rgb(108, =
+117, 125); font-size: 14px; margin: 0px;">Jimmy Psaltis / Stone Real =
+Estate Roseville Willoughby</span></a></td>
+</tr>
+</tbody>
+</table>
+<table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" style=3D"padding: =
+12px 0px 0px; margin: 0px; font-size: 16px; font-family: Helvetica, =
+Arial, sans-serif; text-align: left;">
+<tbody>
+<tr style=3D"padding: 0px; margin: 0px; text-align: left; =
+vertical-align: top;">
+<td width=3D"96" height=3D"96" style=3D"padding: 0px; margin: 0px; =
+width: 96px; height: 96px;">
+<a href=3D"https://www.domain.com.au/2020576646" clicktracking=3D"off" =
+style=3D"text-decoration: none; color: rgb(10, 10, 10); padding: =
+0px;"><img =
+src=3D"https://bucket-api.domain.com.au/v1/bucket/image/2020576646_13_1_26=
+0204_125535-w4032-h3024" class=3D"propertyImage" width=3D"96" =
+height=3D"96" style=3D"width: 96px; height: 96px; display: block; =
+margin: auto; border-radius: 4px; object-fit: cover; padding: =
+0px;"></a></td>
+<td class=3D"regularText" style=3D"padding: 0px 8px; margin: 0px; =
+font-weight: 700; color: rgb(52, 58, 64); font-size: 14px; font-family: =
+Helvetica, Arial, sans-serif;">
+<a href=3D"https://www.domain.com.au/2020576646" clicktracking=3D"off" =
+style=3D"text-decoration: none; color: rgb(10, 10, 10); padding: =
+0px;">93 Artarmon Road, Artarmon<br>
+<span class=3D"mutedText" style=3D"font-weight: 400; color: rgb(108, =
+117, 125); font-size: 14px; margin: 0px;">4 bed</span><span =
+class=3D"mutedText" style=3D"font-weight: 400; color: rgb(108, 117, =
+125); font-size: 14px; padding-left: 8px; margin: 0px;">35 Days =
+listed</span><br>
+<span style=3D"padding-top: 8px; display: inline-block; color: rgb(52, =
+58, 64);">$2,850,000<span =
+class=3D"Apple-converted-space">&nbsp;</span><span class=3D"smallText" =
+style=3D"font-weight: 400; color: rgb(108, 117, 125); font-size: 12px; =
+margin: 0px;">Price Guide</span></span><span class=3D"regularText" =
+style=3D"font-weight: 700; color: rgb(52, 58, 64); font-size: 14px; =
+margin: 0px;"><br>
+Price Withheld<span class=3D"Apple-converted-space">&nbsp;</span><span =
+class=3D"smallText" style=3D"font-weight: 400; color: rgb(108, 117, =
+125); font-size: 12px; margin: 0px;">Sold Price</span></span><br>
+<span class=3D"mutedText" style=3D"font-weight: 400; color: rgb(108, =
+117, 125); font-size: 14px; margin: 0px;">Hugh Macfarlan / Stone Real =
+Estate Roseville Willoughby</span></a></td>
+</tr>
+</tbody>
+</table>
+<div style=3D"margin-top: 42px; color: rgb(52, 58, 64);">Unlisted(1)
+<table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" style=3D"padding: =
+12px 0px 0px; margin: 0px; font-size: 16px; font-family: Helvetica, =
+Arial, sans-serif; text-align: left;">
+<tbody>
+<tr style=3D"padding: 0px; margin: 0px; text-align: left; =
+vertical-align: top;">
+<td width=3D"96" height=3D"96" style=3D"padding: 0px; margin: 0px; =
+width: 96px; height: 96px;">
+<a href=3D"https://www.domain.com.au/2020525210" clicktracking=3D"off" =
+style=3D"text-decoration: none; color: rgb(10, 10, 10); padding: =
+0px;"><img =
+src=3D"https://bucket-api.domain.com.au/v1/bucket/image/2020272484_4_1_250=
+916_042442-w4089-h2726" class=3D"propertyImage" width=3D"96" height=3D"96"=
+ style=3D"width: 96px; height: 96px; display: block; margin: auto; =
+border-radius: 4px; object-fit: cover; padding: 0px;"></a></td>
+<td class=3D"regularText" style=3D"padding: 0px 8px; margin: 0px; =
+font-weight: 700; color: rgb(52, 58, 64); font-size: 14px; font-family: =
+Helvetica, Arial, sans-serif;">
+<a href=3D"https://www.domain.com.au/2020525210" clicktracking=3D"off" =
+style=3D"text-decoration: none; color: rgb(10, 10, 10); padding: 0px;">4 =
+Matheson Avenue, Chatswood<br>
+<span class=3D"mutedText" style=3D"font-weight: 400; color: rgb(108, =
+117, 125); font-size: 14px; margin: 0px;">5 bed</span><span =
+class=3D"mutedText" style=3D"font-weight: 400; color: rgb(108, 117, =
+125); font-size: 14px; padding-left: 8px; margin: 0px;">57 Days =
+listed</span><br>
+<span style=3D"padding-top: 8px; display: inline-block; color: rgb(52, =
+58, 64);">$4,100,000<span =
+class=3D"Apple-converted-space">&nbsp;</span><span class=3D"smallText" =
+style=3D"font-weight: 400; color: rgb(108, 117, 125); font-size: 12px; =
+margin: 0px;">Proping Estimate*</span></span><br>
+<span class=3D"mutedText" style=3D"font-weight: 400; color: rgb(108, =
+117, 125); font-size: 14px; margin: 0px;">Isabella (Ni Yang Fang) Yan / =
+Shead Property</span></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"center" =
+style=3D"padding: 0px; margin: 0px auto; font-size: 16px; font-family: =
+Helvetica, Arial, sans-serif; text-align: left;">
+<tbody>
+<tr style=3D"padding: 0px; margin: 0px;">
+<td style=3D"padding: 20px 0px; margin: 0px; text-align: center; =
+font-family: Helvetica, Arial, sans-serif; font-size: 14px; color: =
+rgb(108, 117, 125); font-weight: 400; line-height: 1.3;">
+That's all for today! Want to refine your preferences?<span =
+class=3D"Apple-converted-space">&nbsp;</span></td>
+</tr>
+<tr style=3D"padding: 0px; margin: 0px;">
+<td width=3D"100%" style=3D"padding: 0px; margin: 0px; width: 500px; =
+text-align: center;">
+<a =
+href=3D"http://url8771.proping.com.au/ls/click?upn=3Du001.tjt9S62NpaFC5Xsv=
+h1WPD-2B0SOWYo4YGGDRg3gSmf8esFJWYileVoaTx9m-2FQxL-2FMDx5CU_4OmvopZT8m1QHj0=
+snBFJ0-2FKGsORUExuLzFhulZQsWDim-2BiyeQS48GVAWLITeIoBRXn509YDOmjkuD1cuIwN-2=
+B8-2BzXXQABqSfYu-2FV1RytvJAhTEGJS90m-2Bznksif9-2F4he-2B1LJpdmvm4lY6aIIcDo-=
+2BR-2B5AvJmDWASz0IgZWkkKQ1Pz6oJnZg3d2ei7922gwcvPShk-2FgOVgU5qyd8xOCG4xeANk=
+kkiWYGCfkHnUVFyBhDJ-2FynVarcOssSPBKreUrtm3mucaznXUKeVYNz37WDZpfyR6v32B6-2F=
+OtnqLhfG5CXKTAqRodQ-2BnGpBS0IObq8Qpefyktuexcx-2BCG64jKYpupQ9g-3D-3D" =
+style=3D"overflow-wrap: break-word; display: inline-block; font-size: =
+14px; text-align: center; text-decoration: none; width: 250px; =
+background-color: rgb(68, 56, 148); border: 1px solid rgb(68, 56, 148); =
+color: rgb(255, 255, 255); height: 45px; font-weight: 400; line-height: =
+45px; border-radius: 4px;">Manage
+ pings<span class=3D"Apple-converted-space">&nbsp;</span></a></td>
+</tr>
+<tr style=3D"padding: 0px; margin: 0px;">
+<td style=3D"padding: 20px 0px; margin: 0px; text-align: center; =
+font-family: Helvetica, Arial, sans-serif; font-size: 14px; color: =
+rgb(108, 117, 125); font-weight: 400; line-height: 1.3;">
+if you have not set up your own ping yet,<a =
+href=3D"http://url8771.proping.com.au/ls/click?upn=3Du001.S4M6ZzZAtRCX50F9=
+fpski0sKSYD3XJ1bLoMf1v3DlH3E2Tq7Nq7UZho-2BxCuWikJYRf_q_4OmvopZT8m1QHj0snBF=
+J0-2FKGsORUExuLzFhulZQsWDim-2BiyeQS48GVAWLITeIoBRXn509YDOmjkuD1cuIwN-2B8-2=
+BzXXQABqSfYu-2FV1RytvJAhTEGJS90m-2Bznksif9-2F4he-2B1LJpdmvm4lY6aIIcDo-2BR-=
+2B5AvJmDWASz0IgZWkkKQ1Pz6oJnZg3d2ei7922gwcvPShk-2FgOVgU5qyd8xOCG4xeAP-2BnD=
+gFUTgdJRnw-2BA2m5Q4QPH-2Bn9DoLt30v0G6hbLViO4FHQLq419Oe3lv3ndtnQuR5XoFdan82=
+1UwRfQU91b0mFt2Yvn1KRJUuhKg3lhEBf5tGjmeApQVFKJ9ySP4kB3w-3D-3D" =
+style=3D"color: rgb(108, 117, 125);">click
+ here to signup</a><br>
+<br>
+<a =
+href=3D"http://url8771.proping.com.au/ls/click?upn=3Du001.tjt9S62NpaFC5Xsv=
+h1WPD08BjuHS3VrMrUQ0zLUMV3Y-3DFBGd_4OmvopZT8m1QHj0snBFJ0-2FKGsORUExuLzFhul=
+ZQsWDim-2BiyeQS48GVAWLITeIoBRXn509YDOmjkuD1cuIwN-2B8-2BzXXQABqSfYu-2FV1Ryt=
+vJAhTEGJS90m-2Bznksif9-2F4he-2B1LJpdmvm4lY6aIIcDo-2BR-2B5AvJmDWASz0IgZWkkK=
+Q1Pz6oJnZg3d2ei7922gwcvPShk-2FgOVgU5qyd8xOCG4xeAKHJ3RrNHDvkqIO5fM06s7aoNY4=
+mucOCCiYcJGYIGkPT3s212qil6qaHbQo2mIkmP9QQ9L0S5dOcaeEOTTOQ3PqrR3p8N2cFwVC4u=
+wEK8Jx-2FWkmI9oyJYbI3KvyTBV1UJw-3D-3D"><img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/9=
+0ffcfba-9586-415e-8bdc-1f75bc4c0295/3608x800.png" width=3D"100" =
+style=3D"border: 0px; clear: both; display: block; max-width: 100px; =
+padding-bottom: 20px; margin: 0px auto;"></a><img =
+src=3D"http://cdn.mcauto-images-production.sendgrid.net/8ef6f1a7c308713c/a=
+2aa6b56-6682-43c0-aaf1-3ca1e22986a1/1762x225.png" width=3D"100" =
+style=3D"border: 0px; clear: both; display: block; max-width: 100px; =
+padding-bottom: 20px; margin: 0px auto;">
+<div style=3D"text-align: left; font-size: 14px; max-width: =
+500px;">Disclaimer:<span class=3D"Apple-converted-space">&nbsp;</span><br>=
+
+*The Proping Estimate is generated by automated algorithms and is =
+intended solely for informational and insight purposes. It is not a =
+valuation or Price Guide, is prone to errors, and should not be relied =
+upon for accuracy or financial decisions. While Proping
+ makes every effort to ensure data integrity, information is provided on =
+an "as-is" basis and no representations or warranties are made as to its =
+accuracy, completeness, or reliability. This content does not constitute =
+financial, legal, or real estate advice.
+ Proping, to the extent permitted by law, accepts no liability for any =
+errors, omissions, or loss arising from reliance placed on this =
+data.<br>
+The content of this email and any attachments is confidential and =
+intended only for the recipient. If you are not the intended recipient, =
+any use, distribution, or copying of this message is strictly =
+prohibited. Please read our<span =
+class=3D"Apple-converted-space">&nbsp;</span><a =
+href=3D"http://url8771.proping.com.au/ls/click?upn=3Du001.tjt9S62NpaFC5Xsv=
+h1WPD9L8upP-2FwQCIYWaC2YyNL9TcN1HrswTb-2BmbHKhAUTB7fBbDZ_4OmvopZT8m1QHj0sn=
+BFJ0-2FKGsORUExuLzFhulZQsWDim-2BiyeQS48GVAWLITeIoBRXn509YDOmjkuD1cuIwN-2B8=
+-2BzXXQABqSfYu-2FV1RytvJAhTEGJS90m-2Bznksif9-2F4he-2B1LJpdmvm4lY6aIIcDo-2B=
+R-2B5AvJmDWASz0IgZWkkKQ1Pz6oJnZg3d2ei7922gwcvPShk-2FgOVgU5qyd8xOCG4xeANwDg=
+FS8QSmi9EKA4rE1X-2FndXdyim474SKDypBQocDcddq4Oo7QqwjukxoW9jbs5L-2FwGz7o1p9q=
+ySeE85ULk8sy8dkbrFIyAWX1gkG-2BK693KRy-2BIC13EgSlQPCFOToyULA-3D-3D">terms
+ of service</a>for more details.<span =
+class=3D"Apple-converted-space">&nbsp;</span></div>
+<div style=3D"text-align: left; font-size: 11px; max-width: 500px; =
+padding-top: 60px;">
+If you would like to stop receiving these emails<a =
+href=3D"http://url8771.proping.com.au/ls/click?upn=3Du001.tjt9S62NpaFC5Xsv=
+h1WPD0mAbvMGFHxDRutqLn0sn3m6p2I5zeFv801Jkm4aOlzB4DINxweOo5bICfy9J1u7YLdy6V=
+MGfpZUQtTvTunCjD4-3DsWfH_4OmvopZT8m1QHj0snBFJ0-2FKGsORUExuLzFhulZQsWDim-2B=
+iyeQS48GVAWLITeIoBRXn509YDOmjkuD1cuIwN-2B8-2BzXXQABqSfYu-2FV1RytvJAhTEGJS9=
+0m-2Bznksif9-2F4he-2B1LJpdmvm4lY6aIIcDo-2BR-2B5AvJmDWASz0IgZWkkKQ1Pz6oJnZg=
+3d2ei7922gwcvPShk-2FgOVgU5qyd8xOCG4xeAHjBVY14NFn0CYX9usi4Ul63asojMSyIxqjzn=
+Ck5sHMz01-2B4ek1qhnkU5DzFy-2BAWHI4D3JjNC3GECSTSkXnV6nVx-2BHXZrlhelLGPT3H2D=
+PHCYArKFvOXrtenPJQK1QitWw-3D-3D"><span =
+class=3D"Apple-converted-space">&nbsp;</span>CLICK
+ HERE</a></div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<img =
+src=3D"http://url8771.proping.com.au/wf/open?upn=3Du001.1s5IkeA90i9fkdWFZh=
+-2Bf-2BjkmhLj09-2FbpeTa0S2xd1-2FB-2FBFjkJuZkJP4XiKXD0li0T4Zgy4jZzklgT4gaKN=
+C3xTCq3uQZEezJ952IQEXqazKuUzm4ACWdnnCLwGS89hKHHU7vlZhmtSaIetr8YUdCNFIovC5Z=
+VyqbrjmCUjBWR-2FTYGK7uNtgi3D7-2BkP4Uvfx3Pyb4PFj0OFKfY9tfHIX5ayDOHVvUNebWk-=
+2FD4gegfs9JcP7JVk1CQcfJfoy1jY1yXVfLhE0uxmmqoxxsL17uGmtnTsYTGqsAR2ak5RWEYyP=
+OKhmT9c2PPx1CBoa2CJK-2BGfIwY73zdxfnVtwQVZaiKn28aCl647oqMydu3TTxLz-2FE-3D" =
+alt=3D"" width=3D"1" height=3D"1" border=3D"0" style=3D"height: 1px =
+!important; width: 1px !important; border-width: 0px !important; margin: =
+0px !important; padding: 0px !important;"></div>
+</div>
+</blockquote>
+</div>
+<br>
+</div>
+
+</div></blockquote></div><br></body></html>=
+
+--Apple-Mail=_F527EEE5-81BF-44CD-9A59-4BFC4471F919--

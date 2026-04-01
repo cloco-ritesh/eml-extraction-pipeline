@@ -1,0 +1,7 @@
+watchdog>=4.0.0
+openai>=1.30.0
+python-dotenv>=1.0.0
+easyocr>=1.7.0
+pydantic>=2.5.0
+Pillow>=10.0.0
+pytest>=7.4.0
