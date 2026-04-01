@@ -10,8 +10,9 @@ services:
       - GENERIC_TIMEZONE=${GENERIC_TIMEZONE:-UTC}
       - TZ=${GENERIC_TIMEZONE:-UTC}
       - OPENAI_API_KEY=${OPENAI_API_KEY}
-      # Allow Execute Command and Local File Trigger (disabled by default in n8n v2+)
-      - N8N_COMMUNITY_PACKAGES_ALLOW_TOOL_USAGE=true
+      # Re-enable ExecuteCommand and LocalFileTrigger (disabled by default in n8n v2+)
+      # Setting NODES_EXCLUDE to empty array overrides the v2 blocklist
+      - NODES_EXCLUDE=[]
       - EXECUTIONS_DATA_SAVE_ON_ERROR=all
       - EXECUTIONS_DATA_SAVE_ON_SUCCESS=all
     volumes:
