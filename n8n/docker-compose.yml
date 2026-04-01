@@ -1,0 +1,26 @@
+services:
+  n8n:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "5678:5678"
+    environment:
+      - GENERIC_TIMEZONE=${GENERIC_TIMEZONE:-UTC}
+      - TZ=${GENERIC_TIMEZONE:-UTC}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      # Allow Execute Command and Local File Trigger (disabled by default in n8n v2+)
+      - N8N_COMMUNITY_PACKAGES_ALLOW_TOOL_USAGE=true
+      - EXECUTIONS_DATA_SAVE_ON_ERROR=all
+      - EXECUTIONS_DATA_SAVE_ON_SUCCESS=all
+    volumes:
+      # Persistent n8n data (workflows, credentials, execution history)
+      - ./n8n-data:/home/node/.n8n
+      # Pipeline code (read-only)
+      - ../ingestion:/pipeline/ingestion:ro
+      - ../run.py:/pipeline/run.py:ro
+      - ../requirements.txt:/pipeline/requirements.txt:ro
+      - ../.env:/pipeline/.env:ro
+      # Shared watch folder (read-write — pipeline writes outputs here)
+      - ../watch_folder:/watch_folder

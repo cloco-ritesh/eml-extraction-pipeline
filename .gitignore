@@ -40,5 +40,9 @@ watch_folder/*.md
 watch_folder/*.eml
 !watch_folder/.gitkeep
 
+# n8n runtime data
+n8n/n8n-data/
+n8n/.env
+
 # Claude Code
 .claude/
