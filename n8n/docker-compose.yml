@@ -13,6 +13,8 @@ services:
       # Re-enable ExecuteCommand and LocalFileTrigger (disabled by default in n8n v2+)
       # Setting NODES_EXCLUDE to empty array overrides the v2 blocklist
       - NODES_EXCLUDE=[]
+      # Allow ReadWriteFile node to access /watch_folder
+      - N8N_RESTRICT_FILE_ACCESS_TO=/watch_folder;/pipeline;/home/node/.n8n-files
       - EXECUTIONS_DATA_SAVE_ON_ERROR=all
       - EXECUTIONS_DATA_SAVE_ON_SUCCESS=all
     volumes:

@@ -3,6 +3,7 @@
   "nodes": [
     {
       "parameters": {
+        "triggerOn": "folder",
         "path": "/watch_folder",
         "events": ["add"],
         "options": {
@@ -28,46 +29,57 @@
     {
       "parameters": {
         "conditions": {
-          "number": [
+          "options": {
+            "caseSensitive": true,
+            "leftValue": ""
+          },
+          "conditions": [
             {
-              "value1": "={{ $json['exitCode'] }}",
-              "operation": "equal",
-              "value2": 0
+              "id": "condition-0",
+              "leftValue": "={{ $json.exitCode }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "equals"
+              }
             }
-          ]
+          ],
+          "combinator": "and"
         }
       },
       "id": "check-success",
       "name": "Success?",
       "type": "n8n-nodes-base.if",
-      "typeVersion": 1,
+      "typeVersion": 2,
       "position": [720, 300]
     },
     {
       "parameters": {
-        "filePath": "={{ $('Run Extraction Pipeline').first().json['path'].replace('.eml', '_validation_report.json') }}"
+        "operation": "read",
+        "fileSelector": "={{ $('Watch for EML Files').first().json['path'].replace('.eml', '_validation_report.json') }}"
       },
       "id": "read-report",
       "name": "Read Validation Report",
-      "type": "n8n-nodes-base.readBinaryFile",
+      "type": "n8n-nodes-base.readWriteFile",
       "typeVersion": 1,
       "position": [960, 200]
     },
     {
       "parameters": {
-        "values": {
-          "string": [
+        "mode": "manual",
+        "assignments": {
+          "assignments": [
             {
+              "id": "a1",
               "name": "filename",
-              "value": "={{ $('Watch for EML Files').first().json['path'].split('/').pop() }}"
+              "value": "={{ $('Watch for EML Files').first().json['path'].split('/').pop() }}",
+              "type": "string"
             },
             {
-              "name": "recommended_model",
-              "value": "={{ $json['data'] }}"
-            },
-            {
+              "id": "a2",
               "name": "status",
-              "value": "success"
+              "value": "success",
+              "type": "string"
             }
           ]
         },
@@ -76,7 +88,7 @@
       "id": "set-summary",
       "name": "Extract Summary",
       "type": "n8n-nodes-base.set",
-      "typeVersion": 2,
+      "typeVersion": 3.4,
       "position": [1200, 200]
     },
     {

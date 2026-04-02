@@ -25,21 +25,16 @@ COMPARABLE_FIELDS = [
 ]
 
 # Confidence weights: LLM models count more than OCR.
-# Weights are per-model contribution to confidence when they agree with consensus.
-# With 7 extractors (6 LLM + 1 OCR), weights are normalized so full agreement ≈ 1.0.
+# With 3 extractors (2 LLM + 1 OCR), weights sum to 1.0 on full agreement.
 MODEL_WEIGHTS: dict[str, float] = {
-    "gpt-4o":       0.17,
-    "gpt-4.1":      0.17,
-    "gpt-4.1-mini": 0.14,
-    "gpt-4.1-nano": 0.10,
-    "o3-mini":      0.16,
-    "o4-mini":      0.16,
-    "ocr":          0.10,
+    "gpt-4o":       0.40,
+    "gpt-4.1-nano": 0.40,
+    "ocr":          0.20,
 }
-DEFAULT_WEIGHT = 0.14  # fallback for unknown models
+DEFAULT_WEIGHT = 0.33  # fallback for unknown models
 
 # Tie-break priority when agreement is equal (higher capability first)
-MODEL_PRIORITY = ["gpt-4o", "gpt-4.1", "o4-mini", "o3-mini", "gpt-4.1-mini", "gpt-4.1-nano", "ocr"]
+MODEL_PRIORITY = ["gpt-4o", "gpt-4.1-nano", "ocr"]
 
 FUZZY_THRESHOLD = 0.85
 

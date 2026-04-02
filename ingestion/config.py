@@ -15,21 +15,13 @@ PROJECT_ROOT: Path = Path(__file__).parent.parent
 
 EXTRACTION_MODELS: list[str] = [
     "gpt-4o",
-    "gpt-4.1",
-    "gpt-4.1-mini",
     "gpt-4.1-nano",
-    "o3-mini",
-    "o4-mini",
 ]
 
 # Pricing per 1K tokens (USD) — April 2026
 MODEL_PRICING: dict[str, dict[str, float]] = {
     "gpt-4o":       {"input": 0.0025,  "output": 0.01},
-    "gpt-4.1":      {"input": 0.002,   "output": 0.008},
-    "gpt-4.1-mini": {"input": 0.0004,  "output": 0.0016},
     "gpt-4.1-nano": {"input": 0.0001,  "output": 0.0004},
-    "o3-mini":      {"input": 0.0011,  "output": 0.0044},
-    "o4-mini":      {"input": 0.0011,  "output": 0.0044},
 }
 
 
